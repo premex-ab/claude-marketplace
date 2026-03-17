@@ -12,7 +12,7 @@ GitHub utilities for managing Dependabot PRs and other GitHub workflows.
 Add this marketplace to Claude Code:
 
 ```bash
-/plugin marketplace add https://github.com/premex-ab/claude-marketplace
+/plugin marketplace add premex-ab/claude-marketplace
 ```
 
 Then install plugins:
