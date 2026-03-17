@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate marketplace.json
-        run: python3 -c "import json; json.load(open('marketplace.json'))"
+        run: python3 -c "import json; json.load(open('.claude-plugin/marketplace.json'))"
       - name: Validate plugin manifests
         run: |
           find plugins -name "plugin.json" | while read f; do
