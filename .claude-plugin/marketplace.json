@@ -1,15 +1,17 @@
 {
   "name": "premex-plugins",
-  "description": "Premex AB custom Claude Code plugins",
+  "owner": {
+    "name": "Premex AB"
+  },
+  "metadata": {
+    "description": "Premex AB custom Claude Code plugins"
+  },
   "plugins": [
     {
       "name": "github-utils",
       "version": "0.1.0",
       "description": "GitHub utilities for managing Dependabot PRs and other GitHub workflows",
-      "source": {
-        "source": "local",
-        "path": "./plugins/github-utils"
-      }
+      "source": "./plugins/github-utils"
     }
   ]
 }
