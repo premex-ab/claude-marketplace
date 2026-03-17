@@ -1,0 +1,5 @@
+{
+  "name": "github-utils",
+  "description": "GitHub utilities for managing Dependabot PRs and other GitHub workflows",
+  "version": "0.1.0"
+}
