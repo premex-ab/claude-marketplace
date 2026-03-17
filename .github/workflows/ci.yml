@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate marketplace.json
+        run: python3 -c "import json; json.load(open('marketplace.json'))"
+      - name: Validate plugin manifests
+        run: |
+          find plugins -name "plugin.json" | while read f; do
+            echo "Validating $f"
+            python3 -c "import json; json.load(open('$f'))"
+          done
+      - name: Check skill files exist
+        run: |
+          find plugins -name "SKILL.md" | while read f; do
+            echo "Found skill: $f"
+            head -1 "$f" | grep -q "^---" || (echo "ERROR: $f missing frontmatter" && exit 1)
+          done
