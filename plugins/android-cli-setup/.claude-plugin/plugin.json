@@ -1,0 +1,5 @@
+{
+  "name": "android-cli-setup",
+  "version": "0.1.0",
+  "description": "Bootstraps Google's `android` CLI (v0.7+, April 2026) and installs its official `android-cli` skill into `~/.claude/skills/`. Triggers the first time a user asks to scaffold, build, deploy, or manage an Android app from the terminal; hands off to the installed skill for all subsequent work."
+}
