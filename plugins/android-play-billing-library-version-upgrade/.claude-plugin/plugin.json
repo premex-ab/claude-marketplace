@@ -1,0 +1,5 @@
+{
+  "name": "android-play-billing-library-version-upgrade",
+  "version": "0.1.0",
+  "description": "Use this skill when upgrading or migrating an Android project from any legacy Google Play Billing Library (PBL) version to the latest stable version of PBL."
+}
