@@ -1,5 +1,0 @@
-{
-  "name": "android-skills",
-  "description": "Mirror of the official android/skills repository — AI-optimised skills for Android development (Jetpack Compose, AGP, Navigation 3, R8, Play Billing, edge-to-edge, and more). Auto-synced daily from https://github.com/android/skills.",
-  "version": "0.1.0"
-}

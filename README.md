@@ -13,24 +13,28 @@
 
 ## 📦 What's inside
 
-### 🤖 android-skills — Google's official Android agent skills, always fresh
+### 🤖 android-* — Google's official Android agent skills, one plugin at a time
 
-Every skill in the [android/skills](https://github.com/android/skills) catalog, live in Claude Code. Google ships these as open-standard [agent skills](https://agentskills.io/home) covering the hard parts of modern Android development — we mirror them here so you install once and forget about it.
+Every skill in the [android/skills](https://github.com/android/skills) catalog, shipped as **individually installable plugins** so you only pay for what you use. Google publishes these as open-standard [agent skills](https://agentskills.io/home) covering the hard parts of modern Android development — we mirror, split, and auto-update them.
 
-| Skill | What it does for you |
+| Plugin | What it does for you |
 |---|---|
-| 🛠️ **agp-9-upgrade** | Migrates your project to Android Gradle Plugin 9 — breaking changes, built-in Kotlin, KSP/KAPT, the works. |
-| 🎨 **migrate-xml-views-to-jetpack-compose** | Step-by-step XML → Jetpack Compose migration, theme mapping and View interop included. |
-| 🧭 **navigation-3** | Jetpack Navigation 3 recipes: deep links, multiple backstacks, scenes, Hilt/ViewModel integration, returning results. |
-| 🪓 **r8-analyzer** | Finds redundant R8/Proguard keep rules and overly broad package-wide rules. Slims your APK. |
-| 💳 **play-billing-library-version-upgrade** | Any legacy Google Play Billing Library version → latest stable, with migration logic pre-mapped. |
-| 📱 **edge-to-edge** | Fixes status/nav bar overlap, IME insets, and system bar legibility — all the adaptive UI gotchas. |
+| 🛠️ **android-agp-9-upgrade** | Migrates your project to Android Gradle Plugin 9 — breaking changes, built-in Kotlin, KSP/KAPT, the works. |
+| 🎨 **android-migrate-xml-views-to-jetpack-compose** | Step-by-step XML → Jetpack Compose migration, theme mapping and View interop included. |
+| 🧭 **android-navigation-3** | Jetpack Navigation 3 recipes: deep links, multiple backstacks, scenes, Hilt/ViewModel integration, returning results. |
+| 🪓 **android-r8-analyzer** | Finds redundant R8/Proguard keep rules and overly broad package-wide rules. Slims your APK. |
+| 💳 **android-play-billing-library-version-upgrade** | Any legacy Google Play Billing Library version → latest stable, with migration logic pre-mapped. |
+| 📱 **android-edge-to-edge** | Fixes status/nav bar overlap, IME insets, and system bar legibility — all the adaptive UI gotchas. |
+
+Install only what you need:
 
 ```bash
-/plugin install android-skills@premex-plugins
+/plugin install android-edge-to-edge@premex-plugins
+/plugin install android-navigation-3@premex-plugins
+# …or any other android-* plugin from the list above
 ```
 
-**🔄 Why install ours instead of cloning upstream?** A GitHub Actions workflow in this repo pulls `android/skills` every day, flattens it into the directory layout Claude Code's plugin loader expects, validates every SKILL.md, and opens an auto-merging PR if anything changed. Upstream ships new skills → you get them on your next `/plugin marketplace update`. Zero maintenance on our side or yours.
+**🔄 Why install ours instead of cloning upstream?** A GitHub Actions workflow in this repo pulls `android/skills` every day, splits each SKILL.md into its own plugin, regenerates the marketplace manifest, and opens an auto-merging PR if anything changed. Upstream ships a new skill → a new plugin lands in your next `/plugin marketplace update`. Zero maintenance on our side or yours. *Why split?* Claude Code [currently locks skill toggling to the plugin level](https://github.com/anthropics/claude-code/issues/40789) — one-plugin-per-skill is the only way to let you activate skills individually.
 
 ### 🤝 github-utils — Dependabot management in plain English
 
