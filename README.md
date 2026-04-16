@@ -36,6 +36,24 @@ Install only what you need:
 
 **🔄 Why install ours instead of cloning upstream?** A GitHub Actions workflow in this repo pulls `android/skills` every day, splits each SKILL.md into its own plugin, regenerates the marketplace manifest, and opens an auto-merging PR if anything changed. Upstream ships a new skill → a new plugin lands in your next `/plugin marketplace update`. Zero maintenance on our side or yours. *Why split?* Claude Code [currently locks skill toggling to the plugin level](https://github.com/anthropics/claude-code/issues/40789) — one-plugin-per-skill is the only way to let you activate skills individually.
 
+### 🚀 android-cli-setup — bootstrap Google's agent-first Android CLI
+
+Google [shipped a new `android` CLI in April 2026](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) — ~70% fewer tokens and ~3x faster than driving the legacy `sdkmanager` / `avdmanager` / `adb` toolchain. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
+
+| Ships with | What you get |
+|---|---|
+| 🌱 **android-cli-setup** skill | One-time install of the `android` CLI into `~/.local/bin` (no sudo needed), runs `android init` to deposit Google's official `android-cli` skill into `~/.claude/skills/`, hands off. |
+| 🔁 **SessionStart hook** | Background refresh throttled to once per 24h — your CLI and bundled skill stay current without you ever running `android update` manually. |
+| ⚙️ **android-cli-ci** skill | Working reference workflows for GitHub Actions, GitLab CI, CircleCI, Bitrise, Jenkins, Buildkite, and self-hosted runners — plus a side-by-side migration guide from `sdkmanager` + cmdline-tools setups you probably have today. |
+| 🛠️ **Slash commands** | `/android-cli-status`, `/android-cli-update`, `/android-cli-reset` for inspection and manual control. |
+
+```bash
+/plugin install android-cli-setup@premex-plugins
+```
+
+> 💬 *"set up the android CLI on my laptop"* → plugin bootstraps, then Google's skill takes over.
+> 💬 *"migrate our GitHub Actions workflow away from sdkmanager"* → CI skill with a ready-to-paste replacement.
+
 ### 🤝 github-utils — Dependabot management in plain English
 
 Talk to Claude like a human; it talks to Dependabot for you.
