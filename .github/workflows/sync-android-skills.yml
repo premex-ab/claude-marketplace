@@ -1,0 +1,92 @@
+name: Sync android/skills
+
+on:
+  schedule:
+    - cron: '17 3 * * *'  # Daily at 03:17 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-android-skills
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout marketplace repo
+        uses: actions/checkout@v4
+
+      - name: Clone upstream android/skills
+        run: |
+          git clone --depth 1 https://github.com/android/skills.git /tmp/upstream
+          cd /tmp/upstream
+          echo "UPSTREAM_SHA=$(git rev-parse HEAD)" >> "$GITHUB_ENV"
+          echo "UPSTREAM_SHORT_SHA=$(git rev-parse --short HEAD)" >> "$GITHUB_ENV"
+
+      - name: Rebuild skills/ by flattening upstream
+        run: |
+          set -euo pipefail
+          DEST="$GITHUB_WORKSPACE/plugins/android-skills"
+
+          # Wipe existing skills and LICENSE so deletions upstream propagate.
+          rm -rf "$DEST/skills"
+          mkdir -p "$DEST/skills"
+          cp /tmp/upstream/LICENSE.txt "$DEST/LICENSE.txt"
+
+          cd /tmp/upstream
+          # Flatten: every SKILL.md's parent directory becomes skills/<basename>/
+          find . -name SKILL.md -not -path './.git/*' -print0 | while IFS= read -r -d '' skill_md; do
+            skill_dir=$(dirname "$skill_md")
+            skill_name=$(basename "$skill_dir")
+            target="$DEST/skills/$skill_name"
+            if [ -d "$target" ]; then
+              echo "ERROR: duplicate skill name '$skill_name' - upstream has two skills with the same directory basename." >&2
+              exit 1
+            fi
+            mkdir -p "$target"
+            (cd "$skill_dir" && tar cf - .) | (cd "$target" && tar xf -)
+            echo "synced: $skill_name (from $skill_dir)"
+          done
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          set -euo pipefail
+          bad=0
+          while IFS= read -r -d '' f; do
+            if ! head -1 "$f" | grep -q '^---'; then
+              echo "ERROR: $f missing frontmatter" >&2
+              bad=1
+            fi
+          done < <(find plugins/android-skills/skills -name SKILL.md -print0)
+          [ "$bad" -eq 0 ]
+
+      - name: Create or update pull request
+        id: cpr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: bot/sync-android-skills
+          delete-branch: true
+          commit-message: "chore(android-skills): sync upstream@${{ env.UPSTREAM_SHORT_SHA }}"
+          title: "chore(android-skills): sync upstream@${{ env.UPSTREAM_SHORT_SHA }}"
+          body: |
+            Automated sync from [android/skills@${{ env.UPSTREAM_SHORT_SHA }}](https://github.com/android/skills/commit/${{ env.UPSTREAM_SHA }}).
+
+            The sync workflow already validated SKILL.md frontmatter on every file below. Merging will publish the update to this marketplace.
+          labels: |
+            automated-sync
+            android-skills
+          add-paths: |
+            plugins/android-skills/skills
+            plugins/android-skills/LICENSE.txt
+
+      - name: Enable auto-merge
+        if: steps.cpr.outputs.pull-request-number != ''
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ steps.cpr.outputs.pull-request-number }}
+        run: gh pr merge --auto --squash "$PR_NUMBER"

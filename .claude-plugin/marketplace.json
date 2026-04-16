@@ -12,6 +12,12 @@
       "version": "0.1.0",
       "description": "GitHub utilities for managing Dependabot PRs and other GitHub workflows",
       "source": "./plugins/github-utils"
+    },
+    {
+      "name": "android-skills",
+      "version": "0.1.0",
+      "description": "Mirror of android/skills - AI-optimised agent skills for Android development (AGP, Jetpack Compose, Navigation 3, R8, Play Billing, edge-to-edge). Auto-synced daily from https://github.com/android/skills.",
+      "source": "./plugins/android-skills"
     }
   ]
 }
