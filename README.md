@@ -1,6 +1,6 @@
-# Premex AB Claude Code Plugins
+# Premex Claude Code Plugins
 
-Custom Claude Code plugin marketplace for Premex AB.
+Custom Claude Code plugin marketplace for Premex.
 
 ## Plugins
 

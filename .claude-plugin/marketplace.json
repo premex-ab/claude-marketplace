@@ -1,10 +1,10 @@
 {
   "name": "premex-plugins",
   "owner": {
-    "name": "Premex AB"
+    "name": "Premex"
   },
   "metadata": {
-    "description": "Premex AB custom Claude Code plugins"
+    "description": "Premex custom Claude Code plugins"
   },
   "plugins": [
     {
