@@ -15,8 +15,8 @@
     },
     {
       "name": "android-cli-setup",
-      "version": "0.1.0",
-      "description": "Bootstraps Google's `android` CLI (v0.7+, April 2026) and installs its official `android-cli` skill into `~/.claude/skills/`. Triggers the first time a user asks to scaffold, build, deploy, or manage an Android app from the terminal; hands off to the installed skill for all subsequent work.",
+      "version": "0.2.0",
+      "description": "Bootstraps Google's `android` CLI (v0.7+, April 2026) on developer machines and CI runners, keeps it fresh daily via a SessionStart hook, and provides migration guidance from legacy sdkmanager/avdmanager-based pipelines. Includes the `android-cli-setup` skill for local dev bootstrapping, the `android-cli-ci` skill for CI/CD setup (GitHub Actions, GitLab, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted) with per-platform reference workflows and a sdkmanager migration guide, plus /android-cli-status, /android-cli-update, /android-cli-reset slash commands.",
       "source": "./plugins/android-cli-setup"
     },
     {
