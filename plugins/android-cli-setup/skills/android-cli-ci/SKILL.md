@@ -75,7 +75,7 @@ Read only the reference(s) relevant to the user's CI platform; they're each self
 
 - **Package syntax changed.** `sdkmanager "platforms;android-34"` → `android sdk install platforms/android-34`. Semicolons → slashes. If you paste an old snippet verbatim you'll get "package not found".
 - **No interactive license prompt.** The CLI prints the Terms of Service once on first run and proceeds. CI scripts don't need `yes | ...` anymore. If your pipeline was relying on the prompt as a gate, that gate is gone.
-- **`ANDROID_SDK_ROOT` is not fully respected** in v0.7 - use `ANDROID_HOME` or `--sdk=<path>`.
+- **`ANDROID_SDK_ROOT` is not fully respected** by current releases - use `ANDROID_HOME` or `--sdk=<path>`.
 - **Build still uses Gradle.** Don't look for `android build` - it doesn't exist. Use `./gradlew assembleDebug` / `bundleRelease` / `testDebugUnitTest` as before.
 - **Self-hosted runners**: the canonical `/usr/local/bin` install needs sudo. On runners where sudo isn't available, install the binary directly:
   ```bash
@@ -84,11 +84,12 @@ Read only the reference(s) relevant to the user's CI platform; they're each self
   ANDROID_CLI_FRESH_INSTALL=1 android --version  # trigger one-time unpack
   ```
 - **Don't run `android init` in CI.** That command installs the agent-facing skill files; CI has no agent. Skip it.
-- **Don't run `android update` in CI** unless you explicitly want bleeding-edge. Pin to a CLI version via `--url=<dl.google.com/android/cli/<VERSION>/...>` for reproducibility; the `latest` channel will bite you during a release.
+- **Install from `latest/`.** The install URL (`https://dl.google.com/android/cli/latest/<slug>/install.sh`) always pulls the current release; every CI run gets whatever's current.
+- **Don't run `android update` mid-job.** Install once at the start; don't re-invoke `update` later in the same job - it'll swap the binary between your `sdk install` step and your build step.
 
 ## After handing off
 
 When the user has a working CI pipeline, suggest:
-- Bumping plaform/build-tools via renovate/dependabot so the pin in CI stays current.
+- Bumping platform/build-tools versions in `gradle/libs.versions.toml` via renovate/dependabot.
 - Using GitHub Actions' `cache` action with restore-keys so partial hits still save minutes.
 - Reading Google's official operational guide at `~/.claude/skills/android-cli/SKILL.md` (if `android init` was run locally) for the full `android` command reference.

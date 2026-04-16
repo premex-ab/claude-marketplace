@@ -1,11 +1,11 @@
 ---
 name: android-cli-setup
-description: Use when the user wants to scaffold, build, deploy, or manage an Android app from the terminal, or mentions Google's `android` CLI (agent-first Android tooling, first release April 2026), or uses any of its subcommands (`create`, `run`, `sdk`, `emulator`, `skills`, `layout`, `screen`, `docs`, `init`, `describe`, `update`). Installs the CLI into `~/.local/bin/android` if missing, runs `android init` to deposit Google's official `android-cli` skill into `~/.claude/skills/android-cli/`, and hands off. A companion SessionStart hook keeps the install fresh daily without user action. Skip for pure Android Studio IDE work that doesn't touch a terminal.
+description: Use when the user wants to scaffold, build, deploy, or manage an Android app from the terminal, or mentions Google's `android` CLI (the agent-first Android tooling that replaces sdkmanager/avdmanager/cmdline-tools), or uses any of its subcommands (`create`, `run`, `sdk`, `emulator`, `skills`, `layout`, `screen`, `docs`, `init`, `describe`, `update`). Installs the CLI into `~/.local/bin/android` if missing, runs `android init` to deposit Google's official `android-cli` skill into `~/.claude/skills/android-cli/`, and hands off. A companion SessionStart hook refreshes the install daily. Skip for pure Android Studio IDE work that doesn't touch a terminal.
 ---
 
 # Android CLI setup
 
-Google's `android` CLI (first release v0.7, April 2026) is an agent-first replacement for the old `adb` / `sdkmanager` / `avdmanager` toolchain. Benchmarks: ~70% fewer tokens, ~3x faster than driving the legacy tools directly. The CLI ships bundled skills including `android-cli`, which it installs into each detected agent's skill directory.
+Google's `android` CLI is an agent-first replacement for the old `adb` / `sdkmanager` / `avdmanager` toolchain. Benchmarks: ~70% fewer tokens, ~3x faster than driving the legacy tools directly. The CLI ships bundled skills including `android-cli`, which it installs into each detected agent's skill directory.
 
 This plugin's job is: get the CLI onto the user's machine once, make sure it stays current forever, and hand off to the installed skill. Everything operational lives in `~/.claude/skills/android-cli/SKILL.md`.
 

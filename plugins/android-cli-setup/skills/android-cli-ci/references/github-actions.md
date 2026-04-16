@@ -51,7 +51,7 @@ jobs:
           path: app/build/outputs/apk/debug/*.apk
 ```
 
-Replace `android-actions/setup-android@v3` with the two-step "install CLI + install packages". If you were pinning `sdk-tools-version`, pin an `android` CLI release instead by appending `/<version>/` to the install URL (see "Pinning a CLI version" below).
+Replace `android-actions/setup-android@v3` with the two-step "install CLI + install packages". The install URL uses `latest/` so you don't need to track a cmdline-tools version anymore; every run grabs the current CLI release.
 
 ## Emulator-backed instrumentation tests
 
@@ -118,16 +118,6 @@ If you're currently using `reactivecircus/android-emulator-runner@v2`, this repl
             platform-tools
       - run: ./gradlew --no-daemon lintDebug -Pandroid.compileSdk=${{ matrix.api }}
 ```
-
-## Pinning a CLI version
-
-`latest` in the install URL will bite you on a bad release day. Pin a known-good version:
-
-```bash
-curl -fsSL "https://dl.google.com/android/cli/0.7.15217673/linux_x86_64/install.sh" | sudo bash
-```
-
-Replace the version when you've tested the new one. Track releases at <https://developer.android.com/tools/agents/android-cli/release-notes>.
 
 ## Self-hosted runners (no sudo)
 

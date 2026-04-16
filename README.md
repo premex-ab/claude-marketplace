@@ -38,7 +38,7 @@ Install only what you need:
 
 ### 🚀 android-cli-setup — bootstrap Google's agent-first Android CLI
 
-Google [shipped a new `android` CLI in April 2026](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) — ~70% fewer tokens and ~3x faster than driving the legacy `sdkmanager` / `avdmanager` / `adb` toolchain. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
+Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) is an agent-first replacement for the old `sdkmanager` / `avdmanager` / `adb` toolchain — ~70% fewer tokens and ~3x faster. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
 
 | Ships with | What you get |
 |---|---|

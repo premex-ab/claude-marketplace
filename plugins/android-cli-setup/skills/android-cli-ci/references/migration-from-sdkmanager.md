@@ -61,7 +61,7 @@ steps:
   - run: ./gradlew --no-daemon assembleDebug
 ```
 
-Three extra lines, but you've dropped a third-party action dependency and gained `android update` + telemetry opt-out + pin-by-URL.
+Three extra lines, but you've dropped a third-party action dependency, your install always pulls the current CLI (no cmdline-tools version to track), and `--no-metrics` opts out of telemetry.
 
 ### Before (hand-rolled cmdline-tools)
 ```yaml
@@ -203,14 +203,13 @@ The CLI's own state lives at `~/.android/bin/`; the SDK lives at `$ANDROID_HOME`
 - [ ] Add `--no-metrics` to every `android` invocation in CI.
 - [ ] Update cache paths (`~/.android/bin` instead of `$ANDROID_HOME/cmdline-tools`).
 - [ ] Bump cache keys so the old cache doesn't confuse the new setup.
-- [ ] Pin the CLI version via URL if you need reproducibility.
 - [ ] Remove `android-actions/setup-android` or `reactivecircus/android-emulator-runner` from your dependencies file/list, after you've confirmed the new setup works.
 - [ ] Keep `./gradlew` commands exactly as they were.
 
 ## When NOT to migrate
 
 - Your existing CI works, nobody's asked for a change, and the SDK is already cached effectively. The CLI is faster but not dramatically so for steady-state CI; the win is setup simplicity, not throughput.
-- You rely on a specific `sdkmanager` flag that has no CLI equivalent yet (unlikely in v0.7+ but worth scanning your scripts).
+- You rely on a specific `sdkmanager` flag that has no CLI equivalent yet (unlikely, but worth scanning your scripts).
 - You're on a locked-down network where adding `dl.google.com/android/cli/` to an allowlist is hard but `dl.google.com/android/repository/` is already allowed.
 
 For everything else, the migration is cheap and pays for itself in shorter workflow files.
