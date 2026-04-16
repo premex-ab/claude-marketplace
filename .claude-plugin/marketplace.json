@@ -14,6 +14,12 @@
       "source": "./plugins/android-agp-9-upgrade"
     },
     {
+      "name": "android-cli-setup",
+      "version": "0.2.0",
+      "description": "Bootstraps Google's `android` CLI on developer machines and CI runners, keeps it fresh daily via a SessionStart hook, and provides migration guidance from legacy sdkmanager/avdmanager-based pipelines. Includes the `android-cli-setup` skill for local dev bootstrapping, the `android-cli-ci` skill for CI/CD setup (GitHub Actions, GitLab, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted) with per-platform reference workflows and a sdkmanager migration guide, plus /android-cli-status, /android-cli-update, /android-cli-reset slash commands.",
+      "source": "./plugins/android-cli-setup"
+    },
+    {
       "name": "android-edge-to-edge",
       "version": "0.1.0",
       "description": "Use this skill to migrate your Jetpack Compose app to add adaptive edge-to-edge support and troubleshoot common issues. Use this skill to fix UI components (like buttons or lists) that are obscured by or overlapping with the navigation bar or status bar, fix IME insets, and fix system bar legibility.",

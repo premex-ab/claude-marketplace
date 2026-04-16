@@ -23,6 +23,13 @@ MARKETPLACE_JSON = REPO / ".claude-plugin" / "marketplace.json"
 PLUGIN_PREFIX = "android-"
 PLUGIN_VERSION = "0.1.0"
 
+# android-* plugins that are hand-authored in this repo and NOT derived from
+# android/skills upstream. Cleanup leaves these alone so the daily sync doesn't
+# delete them.
+PRESERVE_PLUGINS = frozenset({
+    "android-cli-setup",
+})
+
 
 def parse_frontmatter(skill_md: Path) -> dict:
     text = skill_md.read_text(encoding="utf-8")
@@ -50,7 +57,11 @@ def remove_existing_android_plugins() -> None:
     if not PLUGINS_DIR.exists():
         return
     for child in PLUGINS_DIR.iterdir():
-        if child.is_dir() and child.name.startswith(PLUGIN_PREFIX):
+        if (
+            child.is_dir()
+            and child.name.startswith(PLUGIN_PREFIX)
+            and child.name not in PRESERVE_PLUGINS
+        ):
             shutil.rmtree(child)
 
 
