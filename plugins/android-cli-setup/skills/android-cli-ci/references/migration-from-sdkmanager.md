@@ -44,12 +44,26 @@ steps:
   - run: ./gradlew --no-daemon assembleDebug
 ```
 
-### After (android CLI)
+### After (premex-ab/setup-android-cli)
 ```yaml
 steps:
   - uses: actions/checkout@v4
   - uses: actions/setup-java@v4
     with: { distribution: temurin, java-version: '21' }
+  - uses: premex-ab/setup-android-cli@v1
+    with:
+      packages: |
+        platforms/android-34
+        build-tools/34.0.0
+        platform-tools
+  - run: ./gradlew --no-daemon assembleDebug
+```
+
+Same shape as before, one action-to-action swap. No `cmdline-tools-version` to track (the action always pulls the current CLI release). Package names use slashes instead of semicolons; no license flag needed; `--no-metrics` is the default.
+
+If you prefer to avoid the action, the manual equivalent is:
+
+```yaml
   - name: Install Android CLI
     run: curl -fsSL https://dl.google.com/android/cli/latest/linux_x86_64/install.sh | sudo bash
   - name: Install SDK
@@ -58,10 +72,7 @@ steps:
         platforms/android-34 \
         build-tools/34.0.0 \
         platform-tools
-  - run: ./gradlew --no-daemon assembleDebug
 ```
-
-Three extra lines, but you've dropped a third-party action dependency, your install always pulls the current CLI (no cmdline-tools version to track), and `--no-metrics` opts out of telemetry.
 
 ### Before (hand-rolled cmdline-tools)
 ```yaml
@@ -139,16 +150,15 @@ before_script:
           script: ./gradlew connectedDebugAndroidTest
 ```
 
-### After (explicit)
+### After (premex-ab/setup-android-cli + explicit emulator control)
 ```yaml
-      - name: Install CLI + SDK
-        run: |
-          curl -fsSL https://dl.google.com/android/cli/latest/linux_x86_64/install.sh | sudo bash
-          android --no-metrics sdk install \
-            platforms/android-34 \
-            build-tools/34.0.0 \
-            platform-tools \
-            emulator \
+      - uses: premex-ab/setup-android-cli@v1
+        with:
+          packages: |
+            platforms/android-34
+            build-tools/34.0.0
+            platform-tools
+            emulator
             system-images/android-34/google_apis/x86_64
       - name: Boot emulator
         run: |

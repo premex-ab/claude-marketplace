@@ -1,6 +1,6 @@
 ---
 name: android-cli-ci
-description: Use when the user wants to build, test, or deploy an Android app from CI/CD (GitHub Actions, GitLab CI, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted runners), or asks to replace sdkmanager / avdmanager / android-actions/setup-android / reactivecircus/android-emulator-runner with the new agent-first `android` CLI, or is migrating a legacy Android CI pipeline that calls `sdkmanager "platforms;android-X"` before `./gradlew assembleDebug`. Covers install, SDK package management, emulator tests, caching strategy, and a full migration guide from the old cmdline-tools-based setup.
+description: Use when the user wants to build, test, or deploy an Android app from CI/CD (GitHub Actions, GitLab CI, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted runners), or asks to replace sdkmanager / avdmanager / android-actions/setup-android / reactivecircus/android-emulator-runner with the new agent-first `android` CLI, or mentions `premex-ab/setup-android-cli`, or is migrating a legacy Android CI pipeline that calls `sdkmanager "platforms;android-X"` before `./gradlew assembleDebug`. Covers install (via `premex-ab/setup-android-cli@v1` on GitHub Actions, or raw script elsewhere), SDK package management, emulator tests, caching strategy, and a full migration guide from the old cmdline-tools-based setup.
 ---
 
 # Android CLI in CI/CD
@@ -27,14 +27,26 @@ Don't trigger for local dev setup (that's the companion `android-cli-setup` skil
 ## Core workflow in any CI
 
 ### 1. Install the CLI
+
+**On GitHub Actions**, use the composite action - it handles install, caching, `ANDROID_HOME`, and problem matchers in one step:
+
+```yaml
+- uses: premex-ab/setup-android-cli@v1
+  with:
+    packages: platforms/android-34 build-tools/34.0.0 platform-tools
+```
+
+**On any other CI**, use the install script directly:
+
 ```bash
 curl -fsSL https://dl.google.com/android/cli/latest/linux_x86_64/install.sh | sudo bash
 # or for self-hosted macOS runners:
 curl -fsSL https://dl.google.com/android/cli/latest/darwin_arm64/install.sh | sudo bash
 ```
+
 Hosted Linux runners have a writable `/usr/local/bin`, so `sudo` is usually a no-op but harmless. Total download: ~5.4 MB launcher + ~78 MB of embedded resources unpacked on first run into `~/.android/bin/`.
 
-Pass `--no-metrics` on every `android` invocation in CI to opt out of telemetry.
+Pass `--no-metrics` on every `android` invocation in CI to opt out of telemetry (the `premex-ab/setup-android-cli` action does this by default).
 
 ### 2. Install SDK packages
 ```bash
