@@ -6,22 +6,25 @@ on:
   pull_request:
     branches: [main]
 
+permissions:
+  contents: read
+
 jobs:
   CI:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Validate marketplace.json
-        run: python3 -c "import json; json.load(open('.claude-plugin/marketplace.json'))"
+        run: python3 -c "import json, sys; json.load(open(sys.argv[1]))" .claude-plugin/marketplace.json
       - name: Validate plugin manifests
         run: |
-          find plugins -name "plugin.json" | while read f; do
+          find plugins -name "plugin.json" -print0 | while IFS= read -r -d '' f; do
             echo "Validating $f"
-            python3 -c "import json; json.load(open('$f'))"
+            python3 -c "import json, sys; json.load(open(sys.argv[1]))" "$f"
           done
-      - name: Check skill files exist
+      - name: Check skill files have frontmatter
         run: |
-          find plugins -name "SKILL.md" | while read f; do
+          find plugins -name "SKILL.md" -print0 | while IFS= read -r -d '' f; do
             echo "Found skill: $f"
-            head -1 "$f" | grep -q "^---" || (echo "ERROR: $f missing frontmatter" && exit 1)
+            head -1 "$f" | grep -q "^---" || { echo "ERROR: $f missing frontmatter"; exit 1; }
           done
