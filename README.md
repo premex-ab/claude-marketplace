@@ -62,4 +62,4 @@ Marketplace wrapper and Premex-authored plugins are free to use. Third-party ski
 
 ---
 
-*Built at [Premex](https://github.com/premex-ab) 🇸🇪. [Claude Code](https://claude.com/claude-code) is Anthropic's terminal-native agentic coder.*
+*Built at [Premex](https://github.com/premex-ab) 🇸🇪.*
