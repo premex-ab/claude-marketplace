@@ -16,7 +16,7 @@
 <table>
 <tr>
 <td>🚀</td>
-<td><a href="#-android-cli-setup"><b>android-cli-setup</b></a></td>
+<td><a href="#-android-cli"><b>android-cli</b></a></td>
 <td>Bootstrap Google's agent-first <code>android</code> CLI and keep it fresh on your laptop + CI.</td>
 </tr>
 <tr>
@@ -33,12 +33,12 @@
 
 ---
 
-<a id="-android-cli-setup"></a>
+<a id="-android-cli"></a>
 
-### 🚀 android-cli-setup — bootstrap Google's agent-first Android CLI
+### 🚀 android-cli — bootstrap Google's agent-first Android CLI
 
 > **One-liner:** Installs Google's new `android` CLI, keeps it current, hands off to the bundled skill.
-> **Install:** `/plugin install android-cli-setup@premex-plugins`
+> **Install:** `/plugin install android-cli@premex-plugins`
 
 Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) is an agent-first replacement for the old `sdkmanager` / `avdmanager` / `adb` toolchain — ~70% fewer tokens and ~3x faster. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
 
@@ -111,7 +111,7 @@ A GitHub Actions workflow in this repo pulls `android/skills` every day, splits 
 
 <a id="-github-utils--dependabot-management-in-plain-english"></a>
 
-### 🚀 android-cli-setup — bootstrap Google's agent-first Android CLI
+### 🚀 android-cli — bootstrap Google's agent-first Android CLI
 
 Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) is an agent-first replacement for the old `sdkmanager` / `avdmanager` / `adb` toolchain — ~70% fewer tokens and ~3x faster. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
 
@@ -123,7 +123,7 @@ Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/b
 | 🛠️ **Slash commands** | `/android-cli-status`, `/android-cli-update`, `/android-cli-reset` for inspection and manual control. |
 
 ```bash
-/plugin install android-cli-setup@premex-plugins
+/plugin install android-cli@premex-plugins
 ```
 
 > 💬 *"set up the android CLI on my laptop"* → plugin bootstraps, then Google's skill takes over.

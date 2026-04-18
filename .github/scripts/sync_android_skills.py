@@ -27,7 +27,7 @@ PLUGIN_VERSION = "0.1.0"
 # android/skills upstream. Cleanup leaves these alone so the daily sync doesn't
 # delete them.
 PRESERVE_PLUGINS = frozenset({
-    "android-cli-setup",
+    "android-cli",
 })
 
 
