@@ -1,5 +1,5 @@
 {
   "name": "android-cli-setup",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Bootstraps Google's `android` CLI on developer machines and CI runners, keeps it fresh daily via a SessionStart hook, and provides migration guidance from legacy sdkmanager/avdmanager-based pipelines. Includes the `android-cli-setup` skill for local dev bootstrapping, the `android-cli-ci` skill for CI/CD setup (GitHub Actions, GitLab, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted) with per-platform reference workflows and a sdkmanager migration guide, plus /android-cli-status, /android-cli-update, /android-cli-reset slash commands."
 }

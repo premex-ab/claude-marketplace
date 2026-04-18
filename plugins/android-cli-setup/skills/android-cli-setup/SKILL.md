@@ -11,12 +11,14 @@ This plugin's job is: get the CLI onto the user's machine once, make sure it sta
 
 ## Pieces that ship with this plugin
 
-- **This skill** - triggers on Android dev intent, performs the one-time bootstrap if needed, confirms freshness on every invocation, then hands off.
-- **SessionStart hook** (`hooks/refresh.sh`) - once per 24h, runs `android update && android skills add --skill=android-cli` in the background. Logs to `~/.cache/android-cli-setup/update.log`.
+- **SessionStart hook** (`hooks/refresh.sh`) - the primary bootstrap. On first session it installs the CLI synchronously and runs `android init` to deposit the `android-cli` skill. On subsequent sessions it refreshes once per 24h (`android update && android skills add --skill=android-cli`) in the background. Logs to `~/.cache/android-cli-setup/update.log`.
+- **This skill** - triggers on Android dev intent, confirms the CLI + skill landed (fallback path if the hook was disabled or failed), then hands off to the installed `android-cli` skill.
 - **PostToolUse hook** (`hooks/touch-marker.sh`) - when the user manually runs `android update` or `android skills add`, resets the refresh marker so SessionStart doesn't redundantly refresh.
 - **Slash commands** - `/android-cli-status`, `/android-cli-update`, `/android-cli-reset` for inspection and manual control.
 
 ## Workflow
+
+The SessionStart hook handles steps 2–3 automatically on the first session. In a normal flow you'll land in step 1 with `READY` and jump straight to step 4 (staleness check) or step 5 (hand off). The manual steps below are a fallback for cases where the hook was disabled, failed, or the plugin was installed mid-session.
 
 ### 1. Detect current state
 
