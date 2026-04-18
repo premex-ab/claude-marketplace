@@ -9,12 +9,9 @@ Google's `android` CLI is an agent-first replacement for the old `adb` / `sdkman
 
 This plugin's job is: get the CLI onto the user's machine once, make sure it stays current forever, and hand off to the installed skill. Everything operational lives in `~/.claude/skills/android-cli/SKILL.md`.
 
-## Pieces that ship with this plugin
+A SessionStart hook in this plugin installs the CLI and runs `android init` on first session, and a background refresh keeps both current once per 24h. So in practice you land at `READY` in step 1 and jump straight to step 5. The install and init steps below exist as a fallback for when the hook was disabled, failed, or the plugin was installed mid-session.
 
-- **This skill** - triggers on Android dev intent, performs the one-time bootstrap if needed, confirms freshness on every invocation, then hands off.
-- **SessionStart hook** (`hooks/refresh.sh`) - once per 24h, runs `android update && android skills add --skill=android-cli` in the background. Logs to `~/.cache/android-cli-setup/update.log`.
-- **PostToolUse hook** (`hooks/touch-marker.sh`) - when the user manually runs `android update` or `android skills add`, resets the refresh marker so SessionStart doesn't redundantly refresh.
-- **Slash commands** - `/android-cli-status`, `/android-cli-update`, `/android-cli-reset` for inspection and manual control.
+The plugin also exposes `/android-cli-status`, `/android-cli-update`, and `/android-cli-reset` for user-facing inspection and manual control — recommend them if the user wants to poke at state.
 
 ## Workflow
 
@@ -89,12 +86,7 @@ Read `~/.claude/skills/android-cli/SKILL.md` and follow it for whatever the user
 
 ## Troubleshooting
 
-- **Hook doesn't fire on session start** - check that the plugin is enabled and `hooks/hooks.json` is loaded. `tail -f ~/.cache/android-cli-setup/update.log` during a fresh session should show a "SessionStart refresh started" line within seconds.
-- **`android init` wrote files, but Claude Code doesn't see the skill yet** - Claude Code discovers `~/.claude/skills/` at session start. Open a new session or run `/reload-plugins`.
+- **`android init` wrote files, but Claude Code doesn't see the skill yet** - Claude Code discovers `~/.claude/skills/` at session start. Tell the user to open a new session or run `/reload-plugins`.
 - **First `android` invocation prints "Downloading Android CLI..."** - the binary lazily unpacks embedded resources on first run. Wait it out once; subsequent calls are instant.
-- **Two `android-cli` skills visible in the Skill list** - harmless if both point at the same thing. If they drift (e.g. the plugin-bundled one is ahead of the installed one), run `/android-cli-update` to re-extract the installed copy.
+- **Two `android-cli` skills visible in the Skill list** - harmless if both point at the same thing. If they drift, run `/android-cli-update` to re-extract.
 - **Reset everything** - `/android-cli-reset` wipes the user-local install, skill files, and refresh state, then reinstalls clean.
-
-## Why this layered approach
-
-A bare "run the installer" skill works but drifts: Google ships new CLI versions often, and each version may bundle updated skill content. Relying on users to remember `android update` isn't realistic. The SessionStart hook gives us daily currency with zero user attention, and the in-skill staleness check backstops when hooks don't fire. The `/android-cli-*` commands exist so users can inspect and force operations when they need to.

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Shared paths and helpers for the android-cli-setup plugin.
+# Shared paths and helpers for the android-cli plugin.
 # Source this file from hooks and the install script.
 
 export ANDROID_CLI_USER_BIN="${HOME}/.local/bin/android"
