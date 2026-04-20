@@ -34,18 +34,14 @@ In Claude Code:
 /adb-connect:pair
 ```
 
-The command runs a single Node.js script that:
+The command picks the right delivery channel for your environment:
 
-1. Starts a tiny local HTTP server on an OS-picked free port.
-2. Opens the URL in your default web browser (`open` / `xdg-open` / `start`).
-3. The page shows the QR code and live pairing status (`waiting → pairing → paired → connected`).
-4. The script watches for the phone's mDNS advertisements, runs `adb pair` and `adb connect` when the phone scans the QR, and exits with the result.
+- **Claude Code Desktop** → QR opens in the **Preview pane** via the built-in [preview MCP](https://code.claude.com/docs/en/desktop#configure-preview-servers). Adds an `adb-connect-qr` entry to your project's `.claude/launch.json` on first run.
+- **Claude Code CLI** → QR opens in your **system default web browser** (`open` / `xdg-open` / `start`).
 
-Claude Code itself only runs the command once and reports the final outcome — no polling, no orchestration, no extra tokens.
+Either way, the page shows the QR and live pairing status (`waiting → pairing → paired → connected`). The script watches for the phone's mDNS advertisements, runs `adb pair` and `adb connect` after a successful scan, then exits with the result. Claude makes **one** blocking call per path — no polling, no background shells.
 
 On your phone: **Settings → Developer options → Wireless debugging → Pair device with QR code** and scan. Pairing and connection happen automatically within a few seconds.
-
-> **Tip for Claude Code Desktop users**: if you'd rather see the QR in the Preview pane than an external browser, paste the `PAIR_URL` from the command output into the Preview pane's URL bar. Same page, same flow.
 
 ### Running the script directly (no Claude Code)
 

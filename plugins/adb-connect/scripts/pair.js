@@ -331,6 +331,19 @@ async function runServeMode(argPort, { openBrowser = false } = {}) {
 </body>
 </html>`;
 
+  const pendingWaiters = [];
+
+  function flushWaiters() {
+    for (const w of pendingWaiters) {
+      clearTimeout(w.timer);
+      try {
+        w.res.writeHead(200, { 'content-type': 'application/json' });
+        w.res.end(JSON.stringify(state));
+      } catch {}
+    }
+    pendingWaiters.length = 0;
+  }
+
   const server = http.createServer((req, res) => {
     if (req.url === '/status') {
       res.writeHead(200, {
@@ -343,6 +356,34 @@ async function runServeMode(argPort, { openBrowser = false } = {}) {
     if (req.url === '/health') {
       res.writeHead(200, { 'content-type': 'text/plain' });
       res.end('ok');
+      return;
+    }
+    if (req.url === '/wait-for-complete') {
+      // Long-poll: respond immediately if already terminal; otherwise hold
+      // the connection until the pairing flow finishes, so the caller can
+      // make one blocking request instead of polling /status.
+      if (state.state === 'connected' || state.state === 'failed') {
+        res.writeHead(200, { 'content-type': 'application/json' });
+        res.end(JSON.stringify(state));
+        return;
+      }
+      const entry = { res };
+      entry.timer = setTimeout(() => {
+        const i = pendingWaiters.indexOf(entry);
+        if (i !== -1) pendingWaiters.splice(i, 1);
+        try {
+          res.writeHead(200, { 'content-type': 'application/json' });
+          res.end(JSON.stringify({ state: 'timeout', message: 'Long-poll timed out.' }));
+        } catch {}
+      }, 170_000);
+      pendingWaiters.push(entry);
+      req.on('close', () => {
+        const i = pendingWaiters.indexOf(entry);
+        if (i !== -1) {
+          pendingWaiters.splice(i, 1);
+          clearTimeout(entry.timer);
+        }
+      });
       return;
     }
     res.writeHead(200, { 'content-type': 'text/html; charset=utf-8' });
@@ -383,6 +424,9 @@ async function runServeMode(argPort, { openBrowser = false } = {}) {
       if (s.message) log(s.message);
     },
   });
+
+  // Wake up any /wait-for-complete long-pollers with the final state.
+  flushWaiters();
 
   setTimeout(() => {
     // Hard exit: server.close() waits for all HTTP connections to end,
