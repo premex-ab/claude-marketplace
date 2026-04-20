@@ -8,6 +8,12 @@
   },
   "plugins": [
     {
+      "name": "adb-connect",
+      "version": "0.1.0",
+      "description": "Pair and connect an Android device to ADB over Wi-Fi by scanning a QR code from the terminal. Mirrors Android Studio's 'Pair devices using Wi-Fi' flow: generates a Wi-Fi QR code in the terminal, discovers the device via mDNS when the user scans it from Developer options, then runs adb pair and adb connect automatically. Cross-platform via Node.js (no Python required).",
+      "source": "./plugins/adb-connect"
+    },
+    {
       "name": "android-agp-9-upgrade",
       "version": "0.1.0",
       "description": "Upgrades, or migrates, an Android project to use Android Gradle Plugin (AGP) version 9. Do not use this skill for migrating Kotlin Multiplatform (KMP) projects.",
