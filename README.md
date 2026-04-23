@@ -34,6 +34,11 @@
 <td><a href="#-github-utils--dependabot-management-in-plain-english"><b>github-utils</b></a></td>
 <td>Talk to Dependabot in plain English — Claude translates and posts the commands.</td>
 </tr>
+<tr>
+<td>🧹</td>
+<td><a href="#-gradle-dagp--dependency-hygiene-for-gradle-modules"><b>gradle-dagp</b></a></td>
+<td>Analyze and fix Gradle module dependencies with DAGP — investigative, not blind; batched, not mega-PR.</td>
+</tr>
 </table>
 
 ---
@@ -191,6 +196,40 @@ Claude maps your intent to the right `@dependabot` command and posts it via the 
 > 💬 *"rebase all dependabot PRs"*
 > 💬 *"ignore the major version on #123"*
 > 💬 *"show ignore conditions for lodash"*
+
+</details>
+
+---
+
+<a id="-gradle-dagp--dependency-hygiene-for-gradle-modules"></a>
+
+### 🧹 gradle-dagp — dependency hygiene for Gradle modules
+
+> **One-liner:** Analyze and fix Gradle module dependencies with the [autonomousapps dependency-analysis-gradle-plugin](https://github.com/autonomousapps/dependency-analysis-gradle-plugin) — investigative, not blind.
+> **Install:** `/plugin install gradle-dagp@premex-plugins`
+
+DAGP produces precise, structured advice about unused, misused, and misconfigured dependencies. But blindly piping that advice through `fixDependencies` can make a codebase worse, not better — promoting `implementation` to `api` leaks third-party types into every consumer, convention-plugin-sourced advice gets whack-a-moled into individual modules, and one mega-PR with 200 changes is unreviewable. This skill treats DAGP's output as a starting point for thinking.
+
+<details open>
+<summary><b>What's in the box</b></summary>
+
+| Ships with | What you get |
+|---|---|
+| 🧠 **Investigative triage** | Each advice category (unused remove, misused add, api promotion, demotion, redundant plugin, module advice) gets its own decision tree. `implementation → api` advice prompts a "should we actually be exposing this type?" conversation, not an auto-edit. |
+| 🏗️ **Convention-plugin awareness** | Detects `buildSrc` / `build-logic` / namespaced local plugins. Groups repeated advice to spot convention plugins that are over-applying dependencies, and fixes upstream instead of per-consumer. |
+| 📦 **Batched PR plans** | Splits fixes by advice type, module family, or blast radius. Keeps PRs small enough to review in ten minutes and small enough to bisect when something breaks. Convention-plugin changes are always isolated. |
+| 🔼 **Version guardrail** | Checks the applied DAGP version against the latest stable and proposes the upgrade as its own PR before applying advice, so you're not fixing against outdated analysis. |
+| 🐛 **Upstream bug drafting** | If advice is wrong and the build breaks, drafts a minimal-repro issue against autonomousapps/dependency-analysis-gradle-plugin — and **shows it to you for approval before filing under your identity**. |
+
+</details>
+
+<details>
+<summary><b>Ask Claude like this</b></summary>
+
+> 💬 *"run DAGP on this repo and propose cleanup PRs"*
+> 💬 *"`buildHealth` is telling me to make okio api — should I?"*
+> 💬 *"clean up unused dependencies across the feature modules"*
+> 💬 *"fix our convention plugin — DAGP keeps flagging the same dep in every module"*
 
 </details>
 
