@@ -1,0 +1,41 @@
+{
+  "skill_name": "gradle-dagp",
+  "notes": "Test prompts for the gradle-dagp skill. Running these usefully requires a real Gradle project fixture — ideally an Android multi-module project with a buildSrc / build-logic convention plugin, or a reference fixture added under test-fixtures/. Prompts cover: baseline triage, api-vs-implementation judgment, convention-plugin detection, and DAGP-bug handling.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "baseline-triage",
+      "prompt": "I want to clean up the dependency declarations in this Android project. Can you run dependency-analysis-gradle-plugin and propose a plan?",
+      "expected_output": "Skill should: (a) verify DAGP is applied and at a recent version (propose upgrade PR if behind); (b) run buildHealth; (c) present advice grouped by category (unused / misused-transitive / api-promotion / demotion / redundant-plugin); (d) propose a batched-PR plan before applying anything. Must not run `./gradlew fixDependencies` project-wide without investigation.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "api-promotion-investigation",
+      "prompt": "DAGP says `implementation('com.squareup.okio:okio:3.0.0')` in :core:network should be `api`. Should I just change it?",
+      "expected_output": "Skill should run `./gradlew :core:network:reason --id com.squareup.okio:okio` and use the output to advise on whether to (1) refactor to stop exposing the okio type (preferred for shared modules), (2) move responsibility to a different module, or (3) accept the promotion to api. Should not just apply the change without investigation.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "convention-plugin-detection",
+      "prompt": "Why is buildHealth telling me the same dependency is unused in 14 different feature modules? Can you propose a fix?",
+      "expected_output": "Skill should: (a) detect buildSrc / build-logic / namespaced local plugins; (b) identify that repeated advice across many modules is a convention-plugin over-apply signal; (c) propose fixing the convention plugin (or splitting it, or adding an opt-out) rather than deleting the dep from all 14 modules; (d) treat the convention-plugin PR as isolated from any consumer-level cleanup.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "dagp-bug-handling",
+      "prompt": "I removed the dependency DAGP flagged as unused and now the build fails because a KAPT-generated class can't find it. Is DAGP wrong?",
+      "expected_output": "Skill should: (a) investigate whether the dep should be `kapt(...)` instead of `implementation(...)` (common cause); (b) check DAGP version vs. latest; (c) run reason task to gather diagnostics; (d) if a real bug: draft an upstream issue with minimal repro, diagnostics, reason output, and expected-vs-actual advice, and *explicitly ask the user to review the draft before filing* (the issue posts under their identity). Should not call `gh issue create` without explicit user approval.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "mega-pr-pushback",
+      "prompt": "Just apply all the DAGP recommendations across every module and open one PR.",
+      "expected_output": "Skill should push back on a single mega-PR. Should propose a batching plan (by module family, advice type, or blast radius), explain why (reviewability, bisect-ability, rollback), and ask for confirmation on batching strategy before proceeding. Convention-plugin changes and api-promotions should always be isolated.",
+      "files": []
+    }
+  ]
+}

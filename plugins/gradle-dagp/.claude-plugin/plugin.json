@@ -1,0 +1,5 @@
+{
+  "name": "gradle-dagp",
+  "version": "0.1.0",
+  "description": "Analyzes and fixes Gradle module dependencies using the autonomousapps dependency-analysis-gradle-plugin (DAGP). Guides investigative triage of buildHealth / projectHealth / reason output instead of blindly running fixDependencies — prioritizes architecture, build speed, and maintainability. Handles convention plugins in buildSrc / build-logic, splits fixes into sensibly-batched PRs, and drafts upstream bug reports (with user confirmation) when DAGP advice is wrong."
+}
