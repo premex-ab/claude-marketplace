@@ -49,6 +49,7 @@
 
 > **One-liner:** Installs Google's new `android` CLI, keeps it current, hands off to the bundled skill.
 > **Install:** `/plugin install android-cli@premex-plugins`
+> **Full README:** [plugins/android-cli/README.md](plugins/android-cli/README.md)
 
 Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/build-android-apps-3x-faster-using-any-agent.html) is an agent-first replacement for the old `sdkmanager` / `avdmanager` / `adb` toolchain — ~70% fewer tokens and ~3x faster. This plugin gets it onto your machine (and your CI runners), keeps it fresh forever, and hands off to Google's bundled skill once setup is done.
 
@@ -80,6 +81,7 @@ Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/b
 
 > **One-liner:** Android Studio's *Pair devices using Wi-Fi* flow, but from Claude Code — works on macOS, Linux, and Windows.
 > **Install:** `/plugin install adb-connect@premex-plugins`
+> **Full README:** [plugins/adb-connect/README.md](plugins/adb-connect/README.md)
 
 Skip the USB cable. Run `/adb-connect:pair`, a browser tab opens with a QR code, scan it from your phone's **Wireless debugging** menu, and your laptop runs `adb pair` + `adb connect` automatically via mDNS. One slash command, paired and connected in seconds.
 
@@ -132,12 +134,12 @@ Google publishes open-standard [agent skills](https://agentskills.io/home) cover
 
 | Plugin | What it does for you |
 |---|---|
-| 🛠️ **android-agp-9-upgrade** | Migrates your project to Android Gradle Plugin 9 — breaking changes, built-in Kotlin, KSP/KAPT, the works. |
-| 🎨 **android-migrate-xml-views-to-jetpack-compose** | Step-by-step XML → Jetpack Compose migration, theme mapping and View interop included. |
-| 🧭 **android-navigation-3** | Jetpack Navigation 3 recipes: deep links, multiple backstacks, scenes, Hilt/ViewModel integration, returning results. |
-| 🪓 **android-r8-analyzer** | Finds redundant R8/Proguard keep rules and overly broad package-wide rules. Slims your APK. |
-| 💳 **android-play-billing-library-version-upgrade** | Any legacy Google Play Billing Library version → latest stable, with migration logic pre-mapped. |
-| 📱 **android-edge-to-edge** | Fixes status/nav bar overlap, IME insets, and system bar legibility — all the adaptive UI gotchas. |
+| 🛠️ **[android-agp-9-upgrade](plugins/android-agp-9-upgrade/README.md)** | Migrates your project to Android Gradle Plugin 9 — breaking changes, built-in Kotlin, KSP/KAPT, the works. |
+| 🎨 **[android-migrate-xml-views-to-jetpack-compose](plugins/android-migrate-xml-views-to-jetpack-compose/README.md)** | Step-by-step XML → Jetpack Compose migration, theme mapping and View interop included. |
+| 🧭 **[android-navigation-3](plugins/android-navigation-3/README.md)** | Jetpack Navigation 3 recipes: deep links, multiple backstacks, scenes, Hilt/ViewModel integration, returning results. |
+| 🪓 **[android-r8-analyzer](plugins/android-r8-analyzer/README.md)** | Finds redundant R8/Proguard keep rules and overly broad package-wide rules. Slims your APK. |
+| 💳 **[android-play-billing-library-version-upgrade](plugins/android-play-billing-library-version-upgrade/README.md)** | Any legacy Google Play Billing Library version → latest stable, with migration logic pre-mapped. |
+| 📱 **[android-edge-to-edge](plugins/android-edge-to-edge/README.md)** | Fixes status/nav bar overlap, IME insets, and system bar legibility — all the adaptive UI gotchas. |
 
 </details>
 
@@ -187,6 +189,7 @@ Google's [new `android` CLI](https://android-developers.googleblog.com/2026/04/b
 
 > **One-liner:** Talk to Claude like a human; it talks to Dependabot for you.
 > **Install:** `/plugin install github-utils@premex-plugins`
+> **Full README:** [plugins/github-utils/README.md](plugins/github-utils/README.md)
 
 Claude maps your intent to the right `@dependabot` command and posts it via the `gh` CLI. No more memorizing syntax, no more per-PR commenting.
 
@@ -207,6 +210,7 @@ Claude maps your intent to the right `@dependabot` command and posts it via the 
 
 > **One-liner:** Analyze and fix Gradle module dependencies with the [autonomousapps dependency-analysis-gradle-plugin](https://github.com/autonomousapps/dependency-analysis-gradle-plugin) — investigative, not blind.
 > **Install:** `/plugin install gradle-dagp@premex-plugins`
+> **Full README:** [plugins/gradle-dagp/README.md](plugins/gradle-dagp/README.md)
 
 DAGP produces precise, structured advice about unused, misused, and misconfigured dependencies. But blindly piping that advice through `fixDependencies` can make a codebase worse, not better — promoting `implementation` to `api` leaks third-party types into every consumer, convention-plugin-sourced advice gets whack-a-moled into individual modules, and one mega-PR with 200 changes is unreviewable. This skill treats DAGP's output as a starting point for thinking.
 
