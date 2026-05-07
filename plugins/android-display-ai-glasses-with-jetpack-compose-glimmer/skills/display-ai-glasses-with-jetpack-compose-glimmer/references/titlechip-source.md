@@ -86,7 +86,6 @@ public fun TitleChip(
         Row(
             modifier
                 .surface(
-                    focusable = false,
                     shape = shape,
                     color = color,
                     contentColor = contentColor,
