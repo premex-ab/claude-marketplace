@@ -1,0 +1,5 @@
+{
+  "name": "android-camera1-to-camerax",
+  "version": "0.1.0",
+  "description": "Use this skill to migrate legacy Android camera implementations (Camera1 or raw Camera2 APIs) to CameraX. CameraX is a lifecycle-aware Jetpack library built on top of Camera2 that resolves camera rotation issues and handles device dependencies."
+}

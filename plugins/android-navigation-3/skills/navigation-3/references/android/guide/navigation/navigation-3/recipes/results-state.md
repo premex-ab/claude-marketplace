@@ -68,7 +68,7 @@ import kotlinx.serialization.Serializable
 data object Home : NavKey
 
 @Serializable
-class PersonDetailsForm : NavKeyhttps://github.com/android/nav3-recipes/blob/bcba753d0dca783eb8c7c5680a22d181cfd74eed/app/src/main/java/com/example/nav3recipes/results/common/NavKeys.kt
+class PersonDetailsForm : NavKey
 ```
 
 ```
@@ -94,7 +94,7 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class Person(val name: String, val favoriteColor: String) : Parcelablehttps://github.com/android/nav3-recipes/blob/bcba753d0dca783eb8c7c5680a22d181cfd74eed/app/src/main/java/com/example/nav3recipes/results/common/Person.kt
+data class Person(val name: String, val favoriteColor: String) : Parcelable
 ```
 
 ```
