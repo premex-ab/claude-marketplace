@@ -20,10 +20,10 @@
       "source": "./plugins/android-agp-9-upgrade"
     },
     {
-      "name": "android-android-cli",
+      "name": "android-base",
       "version": "0.1.0",
-      "description": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.",
-      "source": "./plugins/android-android-cli"
+      "description": "Orchestrates Android development tasks",
+      "source": "./plugins/android-base"
     },
     {
       "name": "android-camera1-to-camerax",
