@@ -6,6 +6,7 @@ description: Use this skill to migrate legacy Android camera implementations (Ca
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
+  last-updated: '2026-05-06'
   keywords:
   - Android
   - CameraX
@@ -24,43 +25,46 @@ for interoperability, or version 1.5.0 or higher for Compose extensions.
 
 If you are using a Version Catalog (`libs.versions.toml`), add the following:
 
-    [versions]
-    camerax = "<minimum_version_needed>"
 
-    [libraries]
-    androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
-    androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
-    androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
-    # If using Android Views (Option A)
-    androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
-    # If using Jetpack Compose (Option B)
-    androidx-camera-compose = { group = "androidx.camera", name = "camera-compose", version.ref = "camerax" }
+```kotlin
+[versions]
+camerax = "<minimum_version_needed>"
+
+[libraries]
+androidx-camera-core = { group = "androidx.camera", name = "camera-core", version.ref = "camerax" }
+androidx-camera-camera2 = { group = "androidx.camera", name = "camera-camera2", version.ref = "camerax" }
+androidx-camera-lifecycle = { group = "androidx.camera", name = "camera-lifecycle", version.ref = "camerax" }
+androidx-camera-view = { group = "androidx.camera", name = "camera-view", version.ref = "camerax" }
+androidx-camera-compose = { group = "androidx.camera", name = "camera-compose", version.ref = "camerax" }
+```
+
+<br />
 
 And in your `build.gradle.kts` (or `build.gradle`):
 
-    // Core dependencies
-    implementation(libs.androidx.camera.core)
-    implementation(libs.androidx.camera.camera2)
-    implementation(libs.androidx.camera.lifecycle)
 
-    // If using Android Views (Option A)
-    implementation(libs.androidx.camera.view)
+```kotlin
+implementation(libs.androidx.camera.core)
+implementation(libs.androidx.camera.camera2)
+implementation(libs.androidx.camera.lifecycle)
+implementation(libs.androidx.camera.view)
+implementation(libs.androidx.camera.compose)
+```
 
-    // If using Jetpack Compose (Option B)
-    implementation(libs.androidx.camera.compose)
+<br />
 
 Without a Version Catalog, fall back to these standard Gradle dependencies:
 
-    // Core dependencies
-    implementation "androidx.camera:camera-core:<minimum_version_needed>"
-    implementation "androidx.camera:camera-camera2:<minimum_version_needed>"
-    implementation "androidx.camera:camera-lifecycle:<minimum_version_needed>"
 
-    // If using Android Views (Option A)
-    implementation "androidx.camera:camera-view:<minimum_version_needed>"
+```kotlin
+implementation "androidx.camera:camera-core:<minimum_version_needed>"
+implementation "androidx.camera:camera-camera2:<minimum_version_needed>"
+implementation "androidx.camera:camera-lifecycle:<minimum_version_needed>"
+implementation "androidx.camera:camera-view:<minimum_version_needed>"
+implementation "androidx.camera:camera-compose:<minimum_version_needed>"
+```
 
-    // If using Jetpack Compose (Option B)
-    implementation "androidx.camera:camera-compose:<minimum_version_needed>"
+<br />
 
 ## Step 1: Remove Legacy Implementation
 
@@ -258,7 +262,7 @@ lensFacing = if (lensFacing == CameraSelector.LENS_FACING_BACK) {
 
 <br />
 
-## What not to do.
+## Constraints
 
 - **Don't manage the camera lifecycle manually** : Bind the camera to a `LifecycleOwner` through the `ProcessCameraProvider`. Avoid manual camera open or close logic in `onResume` or `onPause`.
 - **Don't calculate focus matrices manually** : `MeteringPointFactory` handles coordinate transformations, including device rotation offsets. Avoid custom matrix implementations.

@@ -20,10 +20,10 @@
       "source": "./plugins/android-agp-9-upgrade"
     },
     {
-      "name": "android-base",
+      "name": "android-android-cli",
       "version": "0.1.0",
-      "description": "Orchestrates Android development tasks",
-      "source": "./plugins/android-base"
+      "description": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool.",
+      "source": "./plugins/android-android-cli"
     },
     {
       "name": "android-camera1-to-camerax",
@@ -60,6 +60,12 @@
       "version": "0.1.0",
       "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation vs anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
       "source": "./plugins/android-navigation-3"
+    },
+    {
+      "name": "android-perfetto-sql",
+      "version": "0.1.0",
+      "description": "Translates natural language data intents into syntactically valid Perfetto SQL queries and executes them against a local trace file. Use this skill to extract slice, thread, or memory data from Android Perfetto traces using trace_processor.",
+      "source": "./plugins/android-perfetto-sql"
     },
     {
       "name": "android-play-billing-library-version-upgrade",

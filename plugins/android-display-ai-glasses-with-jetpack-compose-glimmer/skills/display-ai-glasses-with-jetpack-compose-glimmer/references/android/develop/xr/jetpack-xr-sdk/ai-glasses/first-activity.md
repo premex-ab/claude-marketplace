@@ -28,7 +28,7 @@ Add the following [library dependencies for AI glasses](https://developer.androi
 ### Groovy
 
     dependencies {
-        implementation "androidx.xr.runtime:runtime:1.0.0-alpha12"
+        implementation "androidx.xr.runtime:runtime:1.0.0-alpha13"
         implementation "androidx.xr.glimmer:glimmer:1.0.0-alpha11"
         implementation "androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11"
         implementation "androidx.xr.projected:projected:1.0.0-alpha06"
@@ -38,7 +38,7 @@ Add the following [library dependencies for AI glasses](https://developer.androi
 ### Kotlin
 
     dependencies {
-        implementation("androidx.xr.runtime:runtime:1.0.0-alpha12")
+        implementation("androidx.xr.runtime:runtime:1.0.0-alpha13")
         implementation("androidx.xr.glimmer:glimmer:1.0.0-alpha11")
         implementation("androidx.xr.glimmer:glimmer-google-fonts:1.0.0-alpha11")
         implementation("androidx.xr.projected:projected:1.0.0-alpha06")
