@@ -1,0 +1,5 @@
+{
+  "name": "android-android-cli",
+  "version": "0.1.0",
+  "description": "Orchestrates Android development tasks including project creation, deployment, SDK management, and environment diagnostics using the `android` command-line tool."
+}

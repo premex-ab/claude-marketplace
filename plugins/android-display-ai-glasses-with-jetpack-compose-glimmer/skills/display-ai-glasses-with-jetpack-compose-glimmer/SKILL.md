@@ -9,6 +9,7 @@ description: Provides guidelines for developing projected applications for Andro
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
+  last-updated: '2026-05-08'
   keywords:
   - Jetpack Compose Glimmer
   - AI Glasses
