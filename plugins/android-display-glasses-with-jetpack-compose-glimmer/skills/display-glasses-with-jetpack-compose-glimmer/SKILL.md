@@ -1,19 +1,19 @@
 ---
-name: display-ai-glasses-with-jetpack-compose-glimmer
-description: Provides guidelines for developing projected applications for Android
-  Display AI Glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers
-  foundational Glimmer design principles, workflows for implementing Jetpack Compose
-  Glimmer, and interaction models for the glasses form factor. Use this skill to build
-  an Android XR Augmented Experience application with Jetpack Compose Glimmer that
-  adheres to the Glimmer design system for optimized Glasses styling.
+name: display-glasses-with-jetpack-compose-glimmer
+description: Provides guidelines for developing projected Android XR apps for display
+  glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers foundational
+  Glimmer design principles, workflows for implementing Jetpack Compose Glimmer, and
+  interaction models for the glasses form factor. Use this skill to build an Android
+  XR Augmented Experience app with Jetpack Compose Glimmer that adheres to the Glimmer
+  design system for optimized glasses styling.
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-08'
+  last-updated: '2026-05-13'
   keywords:
   - Jetpack Compose Glimmer
-  - AI Glasses
-  - Display AI Glasses
+  - audio glasses
+  - display glasses
   - Projected Activity
   - GlimmerTheme
   - Additive Display
@@ -24,24 +24,27 @@ metadata:
 
 | Term | Definition |
 |---|---|
-| **AI Glasses** | All-day wear, hands-free devices that provide access to information. Some have a display and some are audio-only. Equipped with speakers, a camera, and a microphone. |
-| **Display AI Glasses** | AI Glasses with the addition of a small, private display for glanceable visuals that harmonize with audio output. |
-| **Jetpack Compose Glimmer** | A Compose UI toolkit for building augmented Android XR experiences, optimized for Display AI Glasses. It provides components, theming, and behaviors for transparent displays. |
-| **Projected Activity** | An Android `Activity` that runs on a host device (phone) but its UI and interactions are projected to a connected AI glasses device. |
+| **Intelligent Eyewear** | All-day wear, hands-free devices that provide access to information. Equipped with speakers, a camera, and a microphone. Some are audio-only (audio glasses), and some also have a display (display glasses). |
+| **Display Glasses** | Audio glasses with the addition of a small, private display for glanceable visuals that harmonize with audio output. |
+| **Jetpack Compose Glimmer** | A Compose UI toolkit for building augmented Android XR experiences, optimized for display glasses. It provides components, theming, and behaviors for transparent displays. |
+| **Projected Activity (Glasses Activity)** | An Android `Activity` that runs on a host device (phone) but its UI and interactions are projected to a connected, intelligent eyewear device (audio or display glasses). |
 | **Projected Device** | An XR device connected to an Android-powered device (host). Host projects the application content to the Projected device and let users interact with it. |
 | **GlimmerTheme** | The root provider for styling tokens, including GlimmerColors, GlimmerTypography, and GlimmerShapes. |
-| **Additive Display** | A display technology where black (#000000) is rendered as 100% transparent. UI is built by adding light to the environment. Display AI Glasses have an additive display. |
+| **Additive Display** | A display technology where black (#000000) is rendered as 100% transparent. UI is built by adding light to the environment. Display glasses have an additive display. |
 | **Augmented Experiences** | Android XR experiences that enhance a user's focus and presence in the real world. They are lightweight and additive, helping users while they are on-the-go |
 | **Visual Angle** | A unit of measurement for perceived size in XR. The minimum readable text size is 0.6 degrees (approx. 18sp at 1 m). |
 
 ## Prerequisites
 
-- Mobile project should target minSDK 37 or higher. If the target SDK is lower than 37, increase the SDK to 37. AI Glasses should target API 36 or higher.
+- Mobile project must target `compileSdk` 37 or higher. If the `compileSdk` is lower than 37, increase the `compileSdk` to 37.
+- Ensure you are using the latest library dependencies from [Create your first
+  activity for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md).
 
 ## Core Constraints
 
 - **Don't:** Use `MaterialTheme` or Material Components.
 - **Do:** Use `GlimmerTheme` and Jetpack Compose Glimmer Components.
+- **Do:** Use `createGoogleSansFlexTypography()` from `androidx.xr.glimmer:glimmer-google-fonts` as the `Typography` value for `GlimmerTheme` to ensure that consistent typography is applied throughout the components.
 
 ## Limitations
 
@@ -52,23 +55,24 @@ metadata:
 
 ## 1. Set up dependencies
 
-- **Setup Projected Activity:** First you need to create a new projected activity for your AI glasses app. If the project doesn't already have one, see [Create your first activity for AI glasses](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). Use [references/projectedcontext-source.md](references/projectedcontext-source.md) to launch the Glasses Projected activity on the Projected Device.
+- **Setup Projected Activity:** First, you need to create a new projected activity for your app. If the project doesn't already have one, see [Create
+  your first activity for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). Use [references/projectedcontext-source.md](references/projectedcontext-source.md) to launch the Glasses Projected activity on the Projected Device. Ensure that you specify `xr_projected` for the `android:requiredDisplayCategory` attribute in app manifest to tell the system that this activity will use a projected context to access hardware from a connected device.
 - **Mobile App Integration:** If the project contains an existing mobile app, you must create a new Glasses Activity dedicated to rendering Glimmer UI. For detailed configuration, heavily reference [Create your first activity
-  for AI glasses](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). If there isn't already a method to launch the Glasses Activity, add a button to the existing mobile app UI labeled "Launch on Glasses" that uses `ProjectedContext` to launch the Glasses Activity on the glasses. Always keep this button in a highly visible location, such as an overlay Floating Action Button (FAB) or the top navigation bar, to ensure users discover the projection capability. If the glasses aren't connected, disable the button. Don't launch the Glasses Activity on the phone, only on the AI Glasses. If it makes sense to automatically launch the Glasses Activity without an explicit launch button, then do so.
+  for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). If there isn't already a method to launch the Glasses Activity, add a button to the existing mobile app UI labeled "Launch on Glasses" that uses `ProjectedContext` to launch the Glasses Activity on the glasses. Always keep this button in a highly visible location, such as an overlay Floating Action Button (FAB) or the top navigation bar, to ensure users discover the projection capability. If the glasses aren't connected, disable the button. Don't launch the Glasses Activity on the phone, only on the display glasses. If it makes sense to automatically launch the Glasses Activity without an explicit launch button, then do so.
 - **UI Library:** Identify if the project has the `androidx.xr.glimmer:glimmer` library, if not it must be added to the project. See [Declaring Jetpack Compose Glimmer Dependencies](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#declaring_dependencies) to fetch the latest dependency version.
 - **Theming:** All Glimmer components must be wrapped within the `GlimmerTheme` composable to ensure correct token resolution.
-- **Mandatory black background:** AI Glasses use additive displays. Any non-black color in the background blocks the real world. **You must always** set a pure black background (`Modifier.background(Color.Black)`) on the root container of your Projected Activity.
+- **Mandatory black background:** Display glasses use additive displays. Any non-black color in the background blocks the real world. **You must always** set a pure black background (`Modifier.background(Color.Black)`) on the root container of your Projected Activity.
 - **Font:** The default font is Google Sans Flex. Use `androidx.xr.glimmer.googlefonts` library with the default type styles unless otherwise specified. Use `createGoogleSansFlexTypography` to create a `Typography` instance with the Google Sans Flex configuration. Provide this `Typography` instance as normal through `GlimmerTheme`. Use [references/glimmersansflextypography-source.md](references/glimmersansflextypography-source.md) for configuration.
-- **Hardware Capabilities:** Different types of AI glasses have different capabilities. To check for these at runtime, see the [Check device
-  capabilities at runtime for AI glasses](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities.md).
-- **Hardware Permissions:** To request hardware permissions like the microphone and camera, see the [Request hardware permissions for AI
-  glasses](references/android/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md).
-- **Hardware Access:** To use the glasses camera, sensors, or access the phone's hardware, see the [Use a projected context to access AI glasses
-  hardware](references/android/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md).
+- **Hardware Capabilities:** Different types of intelligent eyewear devices have different capabilities. To check for these at runtime, see the [Check
+  device capabilities at runtime for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities.md).
+- **Hardware Permissions:** To request hardware permissions like the microphone and camera, see the [Request hardware permissions for
+  intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md).
+- **Hardware Access:** To use the glasses camera, sensors, or access the phone's hardware, see the [Use a projected context to access hardware on
+  intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/access-hardware-projected-context.md).
 
 ## 2. Minimize and translate the UI
 
-- For Display AI Glasses, build UI using components from the Jetpack Compose Glimmer framework.
+- For display glasses, build UI using components from the Jetpack Compose Glimmer framework.
 - Use depth to communicate element priority and hierarchy.
 - Design from the bottom up, trying to minimize how much of the real world you cover. Always bottom align UI to the glasses display.
 - **One Thing at a Time:** Prioritize the user's awareness of the real world. Show only one primary piece of information at a time (for example, using a `Stack`) to minimize obstruction of the user's field of view. Avoid multiple simultaneous cards.
@@ -79,17 +83,17 @@ metadata:
 - Map app interactions, such as tap and swipe, to the available hardware controls on the glasses, such as the touchpad.
 - Inputs are more 1-dimensional; users typically make one control input at a time.
 - Avoid nesting scrolling controls.
-- Jetpack Compose Glimmer components are designed to work with standard input methods, such as a tap or swipe on the AI glasses' touchpad.
+- Jetpack Compose Glimmer components are designed to work with standard input methods, such as a tap or swipe on the glasses' touchpad.
 - Use System Back to dismiss temporary states or detailed views.
 - To add input, focus, tap, swipe to your Glasses UI, follow [Focus in Jetpack
   Compose Glimmer](references/android/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/focus.md).
   - For a detailed breakdown of hardware inputs, see [Hardware Controls for
-    Display AI Glasses](references/android/design/ui/ai-glasses/guides/interaction/inputs.md)
+    display glasses](references/android/design/ui/ai-glasses/guides/interaction/inputs.md)
 
 ## 4. Build with Jetpack Compose Glimmer
 
 Jetpack Compose Glimmer is the UI toolkit for building augmented experiences on
-Display AI Glasses.
+display glasses.
 
 ### Key Features
 
@@ -142,9 +146,9 @@ configure the following axes:
 
 #### Depth Levels
 
-Simulate depth on AI glasses using shadows to establish a sense of hierarchy
-through varying levels of emphasis. The Jetpack Compose Glimmer controls use
-`DepthEffect` with 5 preset `DepthEffectLevels`. Use
+Simulate depth on display glasses using shadows to establish a sense of
+hierarchy through varying levels of emphasis. The Jetpack Compose Glimmer
+controls use `DepthEffect` with 5 preset `DepthEffectLevels`. Use
 [references/deptheffect-source.md](references/deptheffect-source.md) and
 [references/deptheffectlevels-source.md](references/deptheffectlevels-source.md) for reference.
 
@@ -184,8 +188,9 @@ If you are creating a Glimmer Card component, read the:
 #### Buttons
 
 Buttons are the primary triggers for discrete actions in Glimmer. They are
-specifically optimized for the AI Glasses focus model, where a focus highlight
-is added when focus is moved to the button using the touchpad or other methods.
+specifically optimized for the display glasses focus model, where a focus
+highlight is added when focus is moved to the button using the touchpad or other
+methods.
 
 ##### Core Implementation Logic
 
@@ -307,6 +312,17 @@ text component, and lets you set various text properties. Be sure to choose a
 style from the `GlimmerTheme` for your text. Modify the theme for your
 application if you want custom typography.
 
+##### Essential Constraint: Glimmer Text versus Material Text
+
+On transparent Display Glasses (additive displays), standard Material `Text`
+resolves to dark foreground tokens which render as transparent and invisible.
+Glimmer `Text` intelligently manages theme color matching. When no manual color
+override is specified, Glimmer `Text` automatically defaults to the content
+color provided by the nearest Glimmer surface.
+
+- **Don't:** Use Material Text
+- **Do:** Use Glimmer Text
+
 #### Surface
 
 `Surface` is a fundamental building block in Glimmer. Use
@@ -318,6 +334,4 @@ component.
 
 ## 5. Integrate with system UI
 
-- For a detailed breakdown of notifications on AI Glasses, see [Understand
-  notification behavior for AI glasses](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md) and learn how to [Start a glasses
-  activity on display AI glasses from a notification](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity.md).
+- For a detailed breakdown of notifications on intelligent eyewear, see [Understand notification behavior for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md) and learn how to [Start a glasses activity on display glasses from a notification](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity.md).
