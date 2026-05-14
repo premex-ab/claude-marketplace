@@ -1,5 +1,0 @@
-{
-  "name": "android-display-ai-glasses-with-jetpack-compose-glimmer",
-  "version": "0.1.0",
-  "description": "Provides guidelines for developing projected applications for Android Display AI Glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers foundational Glimmer design principles, workflows for implementing Jetpack Compose Glimmer, and interaction models for the glasses form factor. Use this skill to build an Android XR Augmented Experience application with Jetpack Compose Glimmer that adheres to the Glimmer design system for optimized Glasses styling."
-}

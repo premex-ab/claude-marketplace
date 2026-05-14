@@ -38,10 +38,10 @@
       "source": "./plugins/android-cli"
     },
     {
-      "name": "android-display-ai-glasses-with-jetpack-compose-glimmer",
+      "name": "android-display-glasses-with-jetpack-compose-glimmer",
       "version": "0.1.0",
-      "description": "Provides guidelines for developing projected applications for Android Display AI Glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers foundational Glimmer design principles, workflows for implementing Jetpack Compose Glimmer, and interaction models for the glasses form factor. Use this skill to build an Android XR Augmented Experience application with Jetpack Compose Glimmer that adheres to the Glimmer design system for optimized Glasses styling.",
-      "source": "./plugins/android-display-ai-glasses-with-jetpack-compose-glimmer"
+      "description": "Provides guidelines for developing projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers foundational Glimmer design principles, workflows for implementing Jetpack Compose Glimmer, and interaction models for the glasses form factor. Use this skill to build an Android XR Augmented Experience app with Jetpack Compose Glimmer that adheres to the Glimmer design system for optimized glasses styling.",
+      "source": "./plugins/android-display-glasses-with-jetpack-compose-glimmer"
     },
     {
       "name": "android-edge-to-edge",
@@ -66,6 +66,12 @@
       "version": "0.1.0",
       "description": "Translates natural language data intents into syntactically valid Perfetto SQL queries and executes them against a local trace file. Use this skill to extract slice, thread, or memory data from Android Perfetto traces using trace_processor.",
       "source": "./plugins/android-perfetto-sql"
+    },
+    {
+      "name": "android-perfetto-trace-analysis",
+      "version": "0.1.0",
+      "description": "Analyzes Perfetto traces to find the root cause of latency, memory,",
+      "source": "./plugins/android-perfetto-trace-analysis"
     },
     {
       "name": "android-play-billing-library-version-upgrade",

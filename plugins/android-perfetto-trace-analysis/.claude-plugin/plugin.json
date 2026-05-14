@@ -1,0 +1,5 @@
+{
+  "name": "android-perfetto-trace-analysis",
+  "version": "0.1.0",
+  "description": "Analyzes Perfetto traces to find the root cause of latency, memory,"
+}
