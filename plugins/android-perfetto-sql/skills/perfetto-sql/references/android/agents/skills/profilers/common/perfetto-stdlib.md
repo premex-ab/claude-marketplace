@@ -15,17 +15,16 @@ modules in the standard library convert low-level trace concepts
 e.g. slices, tracks and into concepts developers may be more familar with
 e.g. for Android developers: app startups, binder transactions etc.
 
-Standard library modules can be included as follows:
-\`\`\`
--- Include all tables/views/functions from the android.startup.startups
--- module in the standard library.
-INCLUDE PERFETTO MODULE android.startup.startups;
+Standard library modules can be included as follows
 
--- Use the android_startups table defined in the android.startup.startups
--- module.
-SELECT \*
-FROM android_startups;
-\`\`\`
+    -- Include all tables/views/functions from the android.startup.startups
+    -- module in the standard library.
+    INCLUDE PERFETTO MODULE android.startup.startups;
+
+    -- Use the android_startups table defined in the android.startup.startups
+    -- module.
+    SELECT *
+    FROM android_startups;
 
 Prelude is a special module is automatically included. It contains key helper
 tables, views and functions which are universally useful.

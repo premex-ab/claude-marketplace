@@ -1,0 +1,5 @@
+{
+  "name": "android-engage-sdk-integration",
+  "version": "0.1.0",
+  "description": "Helps developers integrate, debug, and resolve Play Engage SDK implementation issues. Use when adding Engage SDK support, generating publishing code, mapping data classes to entities, or fixing SDK-related errors."
+}

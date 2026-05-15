@@ -1,5 +1,5 @@
 {
   "name": "android-perfetto-trace-analysis",
   "version": "0.1.0",
-  "description": "Analyzes Perfetto traces to find the root cause of latency, memory,"
+  "description": "Analyzes Perfetto traces to find the root cause of latency, memory, or jank issues in Android apps. Use when the user provides a Perfetto trace file and asks any question, ongoing investigation, or open-ended request to analyze its contents."
 }
