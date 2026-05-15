@@ -1,0 +1,5 @@
+{
+  "name": "android-styles",
+  "version": "0.1.0",
+  "description": "Use this skill to integrate the Jetpack Compose Styles API into an Android project. This skill guides you through upgrading dependencies, setting up component themes, making custom components styleable, and migrating existing layout properties to use unified styles. Migrate custom design system components, replace hard coded parameters with Style attributes, and use Modifier.styleable for interaction states."
+}

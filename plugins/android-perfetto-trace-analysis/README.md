@@ -1,6 +1,6 @@
 # android-perfetto-trace-analysis
 
-> Analyzes Perfetto traces to find the root cause of latency, memory,
+> Analyzes Perfetto traces to find the root cause of latency, memory, or jank issues in Android apps. Use when the user provides a Perfetto trace file and asks any question, ongoing investigation, or open-ended request to analyze its contents.
 
 **Upstream:** [`android/skills/profilers/perfetto-trace-analysis`](https://github.com/android/skills/tree/main/profilers/perfetto-trace-analysis) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
