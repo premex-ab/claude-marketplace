@@ -6,7 +6,7 @@ description: Helps developers integrate, debug, and resolve Play Engage SDK impl
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-14'
+  last-updated: '2026-05-15'
   keywords:
   - android
   - engage
@@ -116,3 +116,14 @@ Follow these steps to assist the developer:
   - [TV Recommendations](references/android/guide/playcore/engage/tv/recommendations.md)
   - [TV Continue Watching](references/android/guide/playcore/engage/tv/continue-watching/index.md)
   - [TV Entitlements](references/android/guide/playcore/engage/tv/entitlements.md)
+- **Vertical-Specific Schemas:**
+
+  - [Food Schema](references/schemas/food.md)
+  - [Watch Schema](references/schemas/watch.md)
+  - [Listen Schema](references/schemas/listen.md)
+  - [Read Schema](references/schemas/read.md)
+  - [Shopping Schema](references/schemas/shopping.md)
+  - [Social Schema](references/schemas/social.md)
+  - [Travel Schema](references/schemas/travel.md)
+  - [TV Schema](references/schemas/tv.md)
+  - [Other Schema](references/schemas/other.md)

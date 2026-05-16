@@ -14,6 +14,12 @@
       "source": "./plugins/adb-connect"
     },
     {
+      "name": "android-adaptive",
+      "version": "0.1.0",
+      "description": "Instructions to make or update an app's UI so that it adapts to different Android devices including phones, tablets, foldables, laptops, desktop, TV, Auto and XR. It includes how to handle different window sizes, pointing devices (such as mouse) and text entry devices (such as keyboard) using the Compose MediaQuery API. It also covers multi-pane layouts using Navigation3 Scenes, adaptive UI components (such as buttons) with varying target sizes, and adaptive layouts (including navigation areas - nav rails and nav bars) using the Compose Grid and FlexBox APIs.",
+      "source": "./plugins/android-adaptive"
+    },
+    {
       "name": "android-agp-9-upgrade",
       "version": "0.1.0",
       "description": "Upgrades, or migrates, an Android project to use Android Gradle Plugin (AGP) version 9. Do not use this skill for migrating Kotlin Multiplatform (KMP) projects.",
@@ -102,6 +108,12 @@
       "version": "0.1.0",
       "description": "Use this skill to integrate the Jetpack Compose Styles API into an Android project. This skill guides you through upgrading dependencies, setting up component themes, making custom components styleable, and migrating existing layout properties to use unified styles. Migrate custom design system components, replace hard coded parameters with Style attributes, and use Modifier.styleable for interaction states.",
       "source": "./plugins/android-styles"
+    },
+    {
+      "name": "android-testing-setup",
+      "version": "0.1.0",
+      "description": "Analyze and create a testing strategy for native Android apps - install testing libraries, set up test infrastructure, create harnesses for unit tests, UI tests, screenshot tests, and end-to-end tests.",
+      "source": "./plugins/android-testing-setup"
     },
     {
       "name": "github-utils",

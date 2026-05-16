@@ -60,7 +60,7 @@
 
 ## Resources
 
-- **Documentation:** The Perfetto Standard Library documentation is in [`perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/common/perfetto-stdlib). Use this file as a reference to discover available modules, find schemas (columns and types) for specific tables or views, or determine the `INCLUDE PERFETTO MODULE` statements required before drafting SQL query.
+- **Documentation:** The Perfetto Standard Library documentation is in [`perfetto-stdlib.md`](perfetto-stdlib.md). Use this file as a reference to discover available modules, find schemas (columns and types) for specific tables or views, or determine the `INCLUDE PERFETTO MODULE` statements required before drafting SQL query.
 - **Execution Tool:** Queries are executed using the official `trace_processor` wrapper script downloaded directly from Perfetto. Output is returned in pure CSV format.
 
 ## Execution Protocol
@@ -69,20 +69,19 @@ You must follow these steps sequentially, mirroring a multi-agent pipeline:
 
 ### Step 0: Tool Setup
 
-**Fetch the Wrapper:** If you don't have `trace_processor` in your current
-working directory or in your path, download it directly from the Perfetto index:
-`curl -LO https://get.perfetto.dev/trace_processor && chmod +x
-./trace_processor`
-> **Important:** The file served at this URL is a `~10KB` Python wrapper script.
-> Don't assume the download failed because it is human-readable text. This is
-> the intended behavior. This script handles lazy-loading the real binary into
-> `~/.local/share/perfetto/` on its first run. Use it directly.
+**Fetch the Wrapper:** You must use the top level of the current project workspace (`./trace_processor`).
+
+> **CRITICAL GUARDRAIL:** NEVER use filesystem search tools (`find`, `find_by_name`, `grep`, `dir /s`, `Get-ChildItem`) across the home directory or workspace to locate `trace_processor` — unconstrained searches across entire workspaces will stop responding or time out.
+
+Perform a direct file check at the top level of your workspace (e.g., `ls trace_processor`). If missing, download `https://get.perfetto.dev/trace_processor` directly into the root workspace (`curl -LO`), make it executable on macOS/Linux (`chmod +x`), and ensure `trace_processor` is added to `.gitignore`. Execute queries directly via `./trace_processor` (on Windows, explicitly invoke `python trace_processor`).
+
+> **Important:** The file served at this URL is a `~10KB` Python wrapper script. Don't assume the download failed because it is human-readable text. This is the intended behavior. This script handles lazy-loading the precompiled binary automatically on its first run. Use it directly.
 
 ### Step 1: Dissection and Schema Research
 
 1. Identify the core question, required data points, and filtering conditions.
 2. **Precedence Rule:** If the user's request contains a SQL query, use it **without modification** and skip to Step 2 for validation.
-3. **Mandatory Schema and Module Search:** For every table or view you plan to use, you MUST find its schema in [`references/perfetto-stdlib-docs.md`](https://developer.android.com/agents/skills/profilers/common/perfetto-stdlib). **Don't read the entire documentation file** --- it consumes the context window. Follow this precise workflow:
+3. **Mandatory Schema and Module Search:** For every table or view you plan to use, you MUST find its schema in [`perfetto-stdlib.md`](perfetto-stdlib.md). **Don't read the entire documentation file** --- it consumes the context window. Follow this precise workflow:
    - **Discovery and Search:** Use available search tools (`grep`, `read_file` or file search) with line limits to discover relevant views, tables or modules based on your problem domain and high-level intents (for example, 'CPU time', 'running time', 'overlap', 'jank').
      - **Why:** Searching solely for exact table names misses comprehensive, pre-computed views built for these analyses.
      - **Note:** You must verify if a Standard Library module already provides the needed abstraction before drafting manual arithmetic or custom functions.
