@@ -9,7 +9,7 @@ description: Analyzes Android apps to identify key user workflows for AppFunctio
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-14'
+  last-updated: '2026-05-16'
   keywords:
   - AppFunctions
   - Kotlin
@@ -33,8 +33,9 @@ understand and use the provided functionality.
 
 ## Prerequisites
 
-The app must **`targetSdk 36`** or newer as AppFunctions are part of the Android
-platform API, are available from Android 16 onwards.
+The app must **`targetSdk 36`** or newer and use **`compileSdk 37`** or newer as
+AppFunctions, part of the Android platform API, are available from Android 16
+onwards.
 Always use the Jetpack library, as it handles backwards compatibility.
 
 ## Workflows
