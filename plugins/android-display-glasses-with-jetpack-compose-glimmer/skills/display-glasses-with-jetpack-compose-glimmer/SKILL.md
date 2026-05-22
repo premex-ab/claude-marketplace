@@ -9,7 +9,7 @@ description: Provides guidelines for developing projected Android XR apps for di
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-13'
+  last-updated: '2026-05-20'
   keywords:
   - Jetpack Compose Glimmer
   - audio glasses
@@ -38,7 +38,7 @@ metadata:
 
 - Mobile project must target `compileSdk` 37 or higher. If the `compileSdk` is lower than 37, increase the `compileSdk` to 37.
 - Ensure you are using the latest library dependencies from [Create your first
-  activity for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md).
+  activity for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity).
 
 ## Core Constraints
 
@@ -56,15 +56,15 @@ metadata:
 ## 1. Set up dependencies
 
 - **Setup Projected Activity:** First, you need to create a new projected activity for your app. If the project doesn't already have one, see [Create
-  your first activity for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). Use [references/projectedcontext-source.md](references/projectedcontext-source.md) to launch the Glasses Projected activity on the Projected Device. Ensure that you specify `xr_projected` for the `android:requiredDisplayCategory` attribute in app manifest to tell the system that this activity will use a projected context to access hardware from a connected device.
+  your first activity for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity). Use [references/projectedcontext-source.md](references/projectedcontext-source.md) to launch the Glasses Projected activity on the Projected Device. Ensure that you specify `xr_projected` for the `android:requiredDisplayCategory` attribute in app manifest to tell the system that this activity will use a projected context to access hardware from a connected device.
 - **Mobile App Integration:** If the project contains an existing mobile app, you must create a new Glasses Activity dedicated to rendering Glimmer UI. For detailed configuration, heavily reference [Create your first activity
-  for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity.md). If there isn't already a method to launch the Glasses Activity, add a button to the existing mobile app UI labeled "Launch on Glasses" that uses `ProjectedContext` to launch the Glasses Activity on the glasses. Always keep this button in a highly visible location, such as an overlay Floating Action Button (FAB) or the top navigation bar, to ensure users discover the projection capability. If the glasses aren't connected, disable the button. Don't launch the Glasses Activity on the phone, only on the display glasses. If it makes sense to automatically launch the Glasses Activity without an explicit launch button, then do so.
+  for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/first-activity). If there isn't already a method to launch the Glasses Activity, add a button to the existing mobile app UI labeled "Launch on Glasses" that uses `ProjectedContext` to launch the Glasses Activity on the glasses. Always keep this button in a highly visible location, such as an overlay Floating Action Button (FAB) or the top navigation bar, to ensure users discover the projection capability. If the glasses aren't connected, disable the button. Don't launch the Glasses Activity on the phone, only on the display glasses. If it makes sense to automatically launch the Glasses Activity without an explicit launch button, then do so.
 - **UI Library:** Identify if the project has the `androidx.xr.glimmer:glimmer` library, if not it must be added to the project. See [Declaring Jetpack Compose Glimmer Dependencies](https://developer.android.com/jetpack/androidx/releases/xr-glimmer#declaring_dependencies) to fetch the latest dependency version.
 - **Theming:** All Glimmer components must be wrapped within the `GlimmerTheme` composable to ensure correct token resolution.
 - **Mandatory black background:** Display glasses use additive displays. Any non-black color in the background blocks the real world. **You must always** set a pure black background (`Modifier.background(Color.Black)`) on the root container of your Projected Activity.
 - **Font:** The default font is Google Sans Flex. Use `androidx.xr.glimmer.googlefonts` library with the default type styles unless otherwise specified. Use `createGoogleSansFlexTypography` to create a `Typography` instance with the Google Sans Flex configuration. Provide this `Typography` instance as normal through `GlimmerTheme`. Use [references/glimmersansflextypography-source.md](references/glimmersansflextypography-source.md) for configuration.
 - **Hardware Capabilities:** Different types of intelligent eyewear devices have different capabilities. To check for these at runtime, see the [Check
-  device capabilities at runtime for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities.md).
+  device capabilities at runtime for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/check-capabilities).
 - **Hardware Permissions:** To request hardware permissions like the microphone and camera, see the [Request hardware permissions for
   intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/request-hardware-permissions.md).
 - **Hardware Access:** To use the glasses camera, sensors, or access the phone's hardware, see the [Use a projected context to access hardware on
@@ -334,4 +334,4 @@ component.
 
 ## 5. Integrate with system UI
 
-- For a detailed breakdown of notifications on intelligent eyewear, see [Understand notification behavior for intelligent eyewear](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior.md) and learn how to [Start a glasses activity on display glasses from a notification](references/android/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity.md).
+- For a detailed breakdown of notifications on intelligent eyewear, see [Understand notification behavior for intelligent eyewear](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/behavior) and learn how to [Start a glasses activity on display glasses from a notification](https://developer.android.com/develop/xr/jetpack-xr-sdk/ai-glasses/notifications/start-activity).
