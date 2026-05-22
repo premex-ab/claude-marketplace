@@ -7,7 +7,7 @@ description: Analyzes Android build files and R8 keep rules to identify redundan
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-16'
+  last-updated: '2026-05-19'
   keywords:
   - R8
   - proguard
@@ -22,13 +22,12 @@ metadata:
 - Use [references/CONFIGURATION.md](references/CONFIGURATION.md) to identify missing optimizations.
 - **AGP** : If \< 9.0, suggest migration to 9.0 for [build time improvement
   performance](references/android/topic/performance/app-optimization/enable-app-optimization.md)
-- **Full mode** : Verify `android.enableR8.fullMode=false` is removed from gradle.properties.
+- **Full Mode** : Verify `android.enableR8.fullMode=false` is removed from gradle.properties.
 
 ## Step 2. Analysis path selection
 
-- Inspect `build.gradle`, `build.gradle.kts`, and `gradle.properties`
-  and `libs.versions.toml` to
-  get the R8 version
+- Inspect `build.gradle`, `build.gradle.kts`, and `gradle.properties` and
+  `libs.versions.toml` to get the R8 version
 
 - **If R8 \>= 9.3.7-dev** : Proceed to **Path A (Quantitative)**.
 
@@ -38,7 +37,7 @@ metadata:
 
 - **Check requirements** : Python and `protobuf` package are mandatory.
 - **Generate and analyze** : You MUST run the shell commands described in [references/CONFIGURATION-ANALYZER.md](references/CONFIGURATION-ANALYZER.md) to generate the proto file using R8 configuration analyzer, convert it to json and analyze the result.
-- **Report**: Rely entirely on the generated file analysis.txt for scores and rule impact metrics. Proceed to Step 3.
+- **Report** : Rely entirely on the generated file `analysis.txt` for scores and rule impact metrics. Proceed to Step 3.
 
 ### Path B: Heuristic evaluation and recommendation (R8 \< 9.3.7-dev)
 
@@ -52,16 +51,8 @@ metadata:
 ## Step 3. Report generation
 
 - **Format** : Follow [references/REPORT_FORMAT.md](references/REPORT_FORMAT.md) strictly.
-- **Input**: Extract metrics (Scores, Impacts, Example Classes)
-  directly from generated file analysis.txt if using Path A,
-  or from manual findings if using Path B.
-- **Output** :
-  Output ONLY the raw Markdown report in the chat.
-  Do NOT output conversational filler (for example, "Here is your report...").
-  Do NOT provide recommendations, next steps,
-  or any other text outside of the sections defined in
-  [references/REPORT_FORMAT.md](references/REPORT_FORMAT.md)
-  Do NOT mention the path used for analysis of the configuration
+- **Input**: Extract metrics (Scores, Impacts, Example Classes) directly from generated file analysis.txt if using Path A, or from manual findings if using Path B.
+- **Output** : Output ONLY the raw Markdown report in the chat. Do NOT output conversational filler (for example, "Here is your report..."). Do NOT provide recommendations, next steps, or any other text outside of the sections defined in [references/REPORT_FORMAT.md](references/REPORT_FORMAT.md) Do NOT mention the path used for analysis of the configuration
 
 ## Constraints
 
