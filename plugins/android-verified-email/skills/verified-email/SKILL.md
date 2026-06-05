@@ -8,7 +8,7 @@ description: Provides a complete workflow for implementing verified email retrie
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-05-16'
+  last-updated: '2026-05-22'
   keywords:
   - implementation
   - Android
