@@ -1,0 +1,5 @@
+{
+  "name": "android-android-intent-security",
+  "version": "0.1.0",
+  "description": "Best practices for Android Intent security. Use this skill when auditing component configurations in AndroidManifest.xml activities, services, receivers) or source code handling incoming Intents (getIntent, getParcelableExtra) to prevent Intent Redirection and unauthorized access."
+}

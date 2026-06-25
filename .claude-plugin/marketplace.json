@@ -32,6 +32,12 @@
       "source": "./plugins/android-android-cli"
     },
     {
+      "name": "android-android-intent-security",
+      "version": "0.1.0",
+      "description": "Best practices for Android Intent security. Use this skill when auditing component configurations in AndroidManifest.xml activities, services, receivers) or source code handling incoming Intents (getIntent, getParcelableExtra) to prevent Intent Redirection and unauthorized access.",
+      "source": "./plugins/android-android-intent-security"
+    },
+    {
       "name": "android-appfunctions",
       "version": "0.1.0",
       "description": "Analyzes Android apps to identify key user workflows for AppFunctions such as creating a note, playing media, or sending an automated or AI agent triggered message, voice commands, or system shortcuts, without needing to open the app UI. Generates Kotlin code to expose these workflows to the Android system, allowing agents to discover and execute them on-device. Also refines KDoc documentation to ensure AI agents correctly understand and use the provided functionality.",
@@ -68,12 +74,6 @@
       "source": "./plugins/android-engage-sdk-integration"
     },
     {
-      "name": "android-jetpack-compose-m3",
-      "version": "0.1.0",
-      "description": "Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold and TransformingLazyColumn. Migration from earlier versions such as Material 2.5 and Horologist.",
-      "source": "./plugins/android-jetpack-compose-m3"
-    },
-    {
       "name": "android-migrate-xml-views-to-jetpack-compose",
       "version": "0.1.0",
       "description": "Provides a structured workflow for migrating an Android XML View to Jetpack Compose. This skill details the step-by-step process, from planning and dependency setup, to theming and layout migration, validation and XML cleanup. Use this skill when you need to migrate an XML View to Jetpack Compose in an Android project. It solves the problem of converting the UI of a legacy XML View into modern, declarative Compose components while maintaining interoperability.",
@@ -82,7 +82,7 @@
     {
       "name": "android-navigation-3",
       "version": "0.1.0",
-      "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation vs anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
+      "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation versus anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
       "source": "./plugins/android-navigation-3"
     },
     {
@@ -126,6 +126,12 @@
       "version": "0.1.0",
       "description": "Provides a complete workflow for implementing verified email retrieval on Android Credential Manager API. Use this skill to integrate a secure, OTP-less email verification flow into an Android app. This skill solves the problem of high-friction sign-up processes by leveraging cryptographically verified credentials from trusted providers like Google.",
       "source": "./plugins/android-verified-email"
+    },
+    {
+      "name": "android-wear-compose-m3",
+      "version": "0.1.0",
+      "description": "Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold and TransformingLazyColumn. Migration from earlier versions such as Material 2.5 and Horologist.",
+      "source": "./plugins/android-wear-compose-m3"
     },
     {
       "name": "github-utils",

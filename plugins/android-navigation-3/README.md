@@ -1,6 +1,6 @@
 # android-navigation-3
 
-> Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation vs anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.
+> Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation versus anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.
 
 **Upstream:** [`android/skills/navigation/navigation-3`](https://github.com/android/skills/tree/main/navigation/navigation-3) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
