@@ -9,7 +9,7 @@ description: Provides guidelines for developing projected Android XR apps for di
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-06-23'
+  last-updated: '2026-07-02'
   keywords:
   - Jetpack Compose Glimmer
   - audio glasses
@@ -207,7 +207,7 @@ If you are creating a Glimmer Button component, read the:
 
 - **Developer Guidance:** [Jetpack Compose Glimmer: Buttons](references/android/develop/xr/jetpack-xr-sdk/jetpack-compose-glimmer/buttons.md)
 - **API Source Code:** Use [references/button-source.md](references/button-source.md).
-- **Implementation Samples:** Use [references/button-samples-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/button-samples-source).
+- **Implementation Samples:** Use [references/button-samples-source.md](references/button-samples-source.md).
 
 #### Title Chips
 
@@ -277,7 +277,7 @@ If you are creating a Glimmer List component, read the:
 
 - **API Source Code (List):** Use [references/list-source.md](references/list-source.md).
 - **API Source Code (ListItem):** Use [references/listitem-source.md](references/listitem-source.md).
-- **API Source Code (ListState):** Use [references/liststate-source.md](https://developer.android.com/agents/skills/xr/display-glasses-with-jetpack-compose-glimmer/references/liststate-source).
+- **API Source Code (ListState):** Use [references/liststate-source.md](references/liststate-source.md).
 
 #### Stacks
 

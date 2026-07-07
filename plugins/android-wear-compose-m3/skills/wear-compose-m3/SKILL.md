@@ -8,7 +8,7 @@ description: Expert guidance for working with Wear OS Compose Material3. Use thi
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-06-18'
+  last-updated: '2026-07-02'
   keywords:
   - Wear OS
   - Compose

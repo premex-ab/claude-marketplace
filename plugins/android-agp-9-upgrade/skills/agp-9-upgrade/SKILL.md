@@ -6,7 +6,7 @@ description: Upgrades, or migrates, an Android project to use Android Gradle Plu
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-06-03'
+  last-updated: '2026-06-25'
   keywords:
   - Android Gradle Plugin 9
   - AGP 9
@@ -51,7 +51,7 @@ If Hilt is used in the project, ensure it is on version 2.59.2 or higher.
 
 ### Step 2: Migrate to built-in Kotlin
 
-See [the guide](https://developer.android.com/build/migrate-to-built-in-kotlin) for detailed information.
+See [the guide](references/android/build/migrate-to-built-in-kotlin.md) for detailed information.
 
 ### Step 3. Migrate to the new AGP DSL
 

@@ -8,7 +8,7 @@ description: Learn how to install and migrate to Jetpack Navigation 3, and how t
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-06-23'
+  last-updated: '2026-07-02'
   keywords:
   - recipe
   - Android
@@ -55,7 +55,7 @@ Code examples showcasing common patterns.
 
 - *[Basic](references/android/guide/navigation/navigation-3/recipes/basic.md)*: Shows most basic API usage.
 - *[Saveable back stack](references/android/guide/navigation/navigation-3/recipes/basicsaveable.md)*: Shows basic API usage with a persistent back stack.
-- *[Entry provider DSL](https://developer.android.com/guide/navigation/navigation-3/recipes/basicdsl)*: Shows basic API usage using the entryProvider DSL.
+- *[Entry provider DSL](references/android/guide/navigation/navigation-3/recipes/basicdsl.md)*: Shows basic API usage using the entryProvider DSL.
 
 ### Common UI
 
@@ -63,7 +63,7 @@ Code examples showcasing common patterns.
 
 ### Deep links
 
-- *[Basic](https://developer.android.com/guide/navigation/navigation-3/recipes/deeplinks-basic)*: Shows how to parse a deep link URL from an Android Intent into a navigation key.
+- *[Basic](references/android/guide/navigation/navigation-3/recipes/deeplinks-basic.md)*: Shows how to parse a deep link URL from an Android Intent into a navigation key.
 - *[Advanced](references/android/guide/navigation/navigation-3/recipes/deeplinks-advanced.md)*: Shows how to handle deep links with a synthetic back stack and correct "Up" navigation behavior.
 
 ### Scenes
@@ -98,7 +98,7 @@ Code examples showcasing common patterns.
 ### Architecture
 
 - *[Modularized navigation code (Hilt)](references/android/guide/navigation/navigation-3/recipes/modular-hilt.md)*: Demonstrates how to decouple navigation code into separate modules using Hilt or Dagger for DI.
-- *[Modularized navigation code (Koin)](https://developer.android.com/guide/navigation/navigation-3/recipes/modular-koin)*: Demonstrates how to decouple navigation code into separate modules using Koin for DI.
+- *[Modularized navigation code (Koin)](references/android/guide/navigation/navigation-3/recipes/modular-koin.md)*: Demonstrates how to decouple navigation code into separate modules using Koin for DI.
 
 ### Working with ViewModel
 
