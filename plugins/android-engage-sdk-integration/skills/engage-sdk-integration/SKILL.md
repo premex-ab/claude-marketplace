@@ -6,7 +6,7 @@ description: Helps developers integrate, debug, and resolve Play Engage SDK impl
 license: Complete terms in LICENSE.txt
 metadata:
   author: Google LLC
-  last-updated: '2026-06-19'
+  last-updated: '2026-07-02'
   keywords:
   - android
   - engage
@@ -32,7 +32,7 @@ Follow these steps to assist the developer:
    - Always refer to [common.md](references/common.md) for common entities.
    - Ask which cluster type they want to publish from the supported cluster types for that vertical.
    - Find the method to call from `{VERTICAL}.md` in the **[references/schemas/](references/schemas)** directory for the specified cluster. Each method will specify the request it expects.
-   - Get the request structure from [requests.md](https://developer.android.com/agents/skills/play/engage-sdk-integration/references/requests) and clusters from [clusters.md](references/clusters.md). Then suggest and use sources to fill the fields in the request structure correctly, along with the required entities and clusters.
+   - Get the request structure from [requests.md](references/requests.md) and clusters from [clusters.md](references/clusters.md). Then suggest and use sources to fill the fields in the request structure correctly, along with the required entities and clusters.
 2. **Generate Structured Boilerplate Code:**
 
    - Create a new directory for all Engage-related code. Name the directory to match the naming convention of the existing codebase.
