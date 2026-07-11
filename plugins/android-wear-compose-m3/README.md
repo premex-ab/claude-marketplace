@@ -1,6 +1,6 @@
 # android-wear-compose-m3
 
-> Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold and TransformingLazyColumn. Migration from earlier versions such as Material 2.5 and Horologist.
+> Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating, or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold, and TransformingLazyColumn, and core Wear OS concepts such as ambient mode. Migration from lower versions such as Material 2.5 and Horologist.
 
 **Upstream:** [`android/skills/wear/wear-compose-m3`](https://github.com/android/skills/tree/main/wear/wear-compose-m3) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
