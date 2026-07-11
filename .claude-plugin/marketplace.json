@@ -104,6 +104,12 @@
       "source": "./plugins/android-play-billing-library-version-upgrade"
     },
     {
+      "name": "android-play-policy-insights",
+      "version": "0.1.0",
+      "description": "Automated auditor designed to verify Android applications against Google Play Policy domains. It cross-references static code analysis with Play Store declarations to generate deterministic compliance reports, identifying undeclared data collection, architectural risks, and missing disclosures across Permissions and APIs Hygiene, User Account and Identity, and Data Safety and Privacy domains.",
+      "source": "./plugins/android-play-policy-insights"
+    },
+    {
       "name": "android-r8-analyzer",
       "version": "0.1.0",
       "description": "Analyzes Android build files and R8 keep rules to identify redundancies, broad package-wide rules, and rules that subsume library consumer keep rules. Use when developers want to optimize their app's size, remove redundant or overly broad keep rules, or troubleshoot Proguard configurations.",
@@ -130,7 +136,7 @@
     {
       "name": "android-wear-compose-m3",
       "version": "0.1.0",
-      "description": "Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold and TransformingLazyColumn. Migration from earlier versions such as Material 2.5 and Horologist.",
+      "description": "Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating, or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold, and TransformingLazyColumn, and core Wear OS concepts such as ambient mode. Migration from lower versions such as Material 2.5 and Horologist.",
       "source": "./plugins/android-wear-compose-m3"
     },
     {
