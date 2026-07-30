@@ -2,7 +2,7 @@
 
 > Upgrades, or migrates, an Android project to use Android Gradle Plugin (AGP) version 9. Do not use this skill for migrating Kotlin Multiplatform (KMP) projects.
 
-**Upstream:** [`android/skills/build/agp/agp-9-upgrade`](https://github.com/android/skills/tree/main/build/agp/agp-9-upgrade) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
+**Upstream:** [`android/skills/build-system/agp/agp-9-upgrade`](https://github.com/android/skills/tree/main/build-system/agp/agp-9-upgrade) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
 ## Install
 
