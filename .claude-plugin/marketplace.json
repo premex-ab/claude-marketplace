@@ -38,6 +38,12 @@
       "source": "./plugins/android-android-intent-security"
     },
     {
+      "name": "android-android-profiler",
+      "version": "0.1.0",
+      "description": "Manages Android performance profiling and debugging. Triggers when the user asks to record or analyze Android performance data, such as system traces, heap dumps, method recordings, callstack samples, memory allocations, or investigate bottlenecks, jank, memory leaks, and app startup issues on Android, or when the user asks to write, debug, or execute ad-hoc SQL queries. Applies to both user and system apps or services.",
+      "source": "./plugins/android-android-profiler"
+    },
+    {
       "name": "android-appfunctions",
       "version": "0.1.0",
       "description": "Analyzes Android apps to identify key user workflows for AppFunctions such as creating a note, playing media, or sending an automated or AI agent triggered message, voice commands, or system shortcuts, without needing to open the app UI. Generates Kotlin code to expose these workflows to the Android system, allowing agents to discover and execute them on-device. Also refines KDoc documentation to ensure AI agents correctly understand and use the provided functionality.",
@@ -96,18 +102,6 @@
       "version": "0.1.0",
       "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation versus anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
       "source": "./plugins/android-navigation-3"
-    },
-    {
-      "name": "android-perfetto-sql",
-      "version": "0.1.0",
-      "description": "Translates natural language data intents into syntactically valid Perfetto SQL queries and executes them against a local trace file. Use this skill to extract slice, thread, or memory data from Android Perfetto traces using trace_processor.",
-      "source": "./plugins/android-perfetto-sql"
-    },
-    {
-      "name": "android-perfetto-trace-analysis",
-      "version": "0.1.0",
-      "description": "Analyzes Perfetto traces to find the root cause of latency, memory, or jank issues in Android apps. Use when the user provides a Perfetto trace file and asks any question, ongoing investigation, or open-ended request to analyze its contents.",
-      "source": "./plugins/android-perfetto-trace-analysis"
     },
     {
       "name": "android-play-billing-library-version-upgrade",
