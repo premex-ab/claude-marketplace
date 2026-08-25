@@ -122,6 +122,12 @@
       "source": "./plugins/android-r8-analyzer"
     },
     {
+      "name": "android-restore-credentials",
+      "version": "0.1.0",
+      "description": "Provides knowledge and workflows to implement Android's Restore Credentials feature using the androidx.credentials library. Use this skill to create, sign in with, and delete restore keys, enabling silent user sign-in on new devices after a restore. It covers version compatibility, dependencies, server-side prerequisites, and the complete client-side implementation for creating, retrieving, and clearing restore keys.",
+      "source": "./plugins/android-restore-credentials"
+    },
+    {
       "name": "android-styles",
       "version": "0.1.0",
       "description": "Use this skill to integrate the Jetpack Compose Styles API into an Android project. This skill guides you through upgrading dependencies, setting up component themes, making custom components styleable, and migrating existing layout properties to use unified styles. Migrate custom design system components, replace hard coded parameters with Style attributes, and use Modifier.styleable for interaction states.",
