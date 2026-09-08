@@ -98,10 +98,22 @@
       "source": "./plugins/android-migrate-xml-views-to-jetpack-compose"
     },
     {
+      "name": "android-ml-kit-genai-prompt-api",
+      "version": "0.1.0",
+      "description": "Analyzes Android codebases to implement ML Kit GenAI Prompt API. Use this skill to send natural language requests on-device to Gemini Nano, use structured output with Prompt API, implement prefix caching, optimize the current prompt, or apply best practices.\"",
+      "source": "./plugins/android-ml-kit-genai-prompt-api"
+    },
+    {
       "name": "android-navigation-3",
       "version": "0.1.0",
       "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation versus anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
       "source": "./plugins/android-navigation-3"
+    },
+    {
+      "name": "android-navigation-event",
+      "version": "0.1.0",
+      "description": "Intercept back gestures and run Predictive Back animations using the NavigationEvent (androidx.navigationevent) library in Compose Android. Handles Activity setup, parent-child dispatcher scoping in `ViewPagers` or tabs, Compose `NavigationBackHandler`, and migration from legacy `BackHandler` on SDK 36+.",
+      "source": "./plugins/android-navigation-event"
     },
     {
       "name": "android-play-billing-library-version-upgrade",
