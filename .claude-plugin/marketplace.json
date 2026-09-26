@@ -38,6 +38,12 @@
       "source": "./plugins/android-android-intent-security"
     },
     {
+      "name": "android-android-permissions-security",
+      "version": "0.1.0",
+      "description": "Audits, detects gaps, and remediates Android permissions and IPC component security vulnerabilities. Use when reviewing AndroidManifest.xml, defining custom permissions, securing Services, Receivers, and Providers, verifying caller signatures and UID using Binder, or implementing runtime permission flows.",
+      "source": "./plugins/android-android-permissions-security"
+    },
+    {
       "name": "android-android-profiler",
       "version": "0.1.0",
       "description": "Manages Android performance profiling and debugging. Triggers when the user asks to record or analyze Android performance data, such as system traces, heap dumps, method recordings, callstack samples, memory allocations, or investigate bottlenecks, jank, memory leaks, and app startup issues on Android, or when the user asks to write, debug, or execute ad-hoc SQL queries. Applies to both user and system apps or services.",
@@ -148,7 +154,7 @@
     {
       "name": "android-testing-setup",
       "version": "0.1.0",
-      "description": "Analyze and create a testing strategy for native Android apps - install testing libraries, set up test infrastructure, create harnesses for unit tests, UI tests, screenshot tests, and end-to-end tests.",
+      "description": "Analyze and create a testing strategy for Android apps - install testing libraries, set up test infrastructure, create harnesses for unit tests, UI tests, screenshot tests, and end-to-end tests.",
       "source": "./plugins/android-testing-setup"
     },
     {
@@ -160,7 +166,7 @@
     {
       "name": "android-wear-compose-m3",
       "version": "0.1.0",
-      "description": "Expert guidance for working with Wear OS Compose Material3. Use this skill when creating, updating, or migrating Wear OS projects. This includes the androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3 libraries. Also working with core components such as AppScaffold, ScreenScaffold, and TransformingLazyColumn, and core Wear OS concepts such as ambient mode. Migration from lower versions such as Material 2.5 and Horologist. This also includes creating previews.",
+      "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, ambient mode, and previews.",
       "source": "./plugins/android-wear-compose-m3"
     },
     {
