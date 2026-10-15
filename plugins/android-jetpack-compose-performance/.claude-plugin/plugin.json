@@ -1,0 +1,5 @@
+{
+  "name": "android-jetpack-compose-performance",
+  "version": "0.1.0",
+  "description": "Diagnose and optimize Android Jetpack Compose UI code. Use this skill when analyzing performance bottlenecks of existing code to minimize recomposition overhead and prevent dropped frames and UI lag."
+}
