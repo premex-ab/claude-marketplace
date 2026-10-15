@@ -32,6 +32,12 @@
       "source": "./plugins/android-android-cli"
     },
     {
+      "name": "android-android-for-cars-parked-apps",
+      "version": "0.1.0",
+      "description": "Adapt existing Android video streaming apps, games, and web browsers to run as parked apps on Android Auto and Android Automotive OS. Covers manifest configuration, Google Play hardware feature declarations, compatibility mode, back navigation affordances, orientation and display continuity, controllable system bar insets, irregular display cutouts, driver distraction lifecycle handling, MediaSession playback restrictions with CarUxRestrictionsManager, background audio while driving, and browser sensitive data protection. Use this skill when migrating, building, or auditing parked apps for cars to meet Car App Quality guidelines. Don't use for media audio apps, templated Car App Library navigation, point of interest, internet of things, weather, or communication apps designed for use while driving.",
+      "source": "./plugins/android-android-for-cars-parked-apps"
+    },
+    {
       "name": "android-android-intent-security",
       "version": "0.1.0",
       "description": "Best practices for Android Intent security. Use this skill when auditing component configurations in AndroidManifest.xml activities, services, receivers) or source code handling incoming Intents (getIntent, getParcelableExtra) to prevent Intent Redirection and unauthorized access.",
@@ -46,7 +52,7 @@
     {
       "name": "android-android-profiler",
       "version": "0.1.0",
-      "description": "Manages Android performance profiling and debugging. Triggers when the user asks to record or analyze Android performance data, such as system traces, heap dumps, method recordings, callstack samples, memory allocations, or investigate bottlenecks, jank, memory leaks, and app startup issues on Android, or when the user asks to write, debug, or execute ad-hoc SQL queries. Applies to both user and system apps or services.",
+      "description": "Records and analyzes Android performance data and diagnoses performance bottlenecks across user apps, system apps, and system services, even if the user does not explicitly mention profiling or traces. Use when: recording system traces, CPU call stacks, Vulkan GPU/DRM memory, or Java/native heap profiles; analyzing Perfetto traces for UI jank, frame drops, ANRs, or app startup latency issues; investigating CPU bottlenecks, IPC/Binder storms, or thread scheduling stalls; diagnosing battery drain, modem power rails, and kernel wake locks; debugging memory pressure, Low Memory Kills (LMK), OOMs, leaks, and allocation churn; performing A/B baseline trace comparisons to find regressions; executing ad hoc PerfettoSQL queries on Android traces.",
       "source": "./plugins/android-android-profiler"
     },
     {
@@ -86,10 +92,28 @@
       "source": "./plugins/android-engage-sdk-integration"
     },
     {
+      "name": "android-glance-canonical-layouts",
+      "version": "0.1.0",
+      "description": "Use this skill to create home screen widgets using Jetpack Glance Canonical Layouts from the Android Platform Samples project, or when asked to implement standard widget layout patterns (including Check List, Image Grid, Snap Scrolling, and Standard Toolbar).",
+      "source": "./plugins/android-glance-canonical-layouts"
+    },
+    {
+      "name": "android-jetpack-compose-performance",
+      "version": "0.1.0",
+      "description": "Diagnose and optimize Android Jetpack Compose UI code. Use this skill when analyzing performance bottlenecks of existing code to minimize recomposition overhead and prevent dropped frames and UI lag.",
+      "source": "./plugins/android-jetpack-compose-performance"
+    },
+    {
       "name": "android-leanback-to-compose-tv-migration",
       "version": "0.1.0",
       "description": "Provides instructions and architectural patterns for migrating Android TV applications from legacy Leanback UI Toolkit, Android Views, or Support Fragments to Jetpack Compose for TV (androidx.tv). Use this skill for Leanback to Compose migrations, including browse screen, settings screen, authentication screen, login screen, or video playback screen migrations, or when replacing BrowseSupportFragment, LeanbackSettingsFragment, PreferenceFragment, BaseLeanbackPreferenceFragmentCompat, VideoSupportFragment, GuidedStepSupportFragment, SearchSupportFragment, VerticalGridSupportFragment, Presenter, ArrayObjectAdapter, or CursorMapper with modern Compose equivalents, implementing immersive carousels with focus memory, Media3 video playback with PlayerSurface, or custom 10-foot hero layouts.",
       "source": "./plugins/android-leanback-to-compose-tv-migration"
+    },
+    {
+      "name": "android-litert-runtime",
+      "version": "0.1.0",
+      "description": "Configures and implements LiteRT (.tflite) on-device inference on Android in Kotlin using the CompiledModel API on CPU and GPU. Use this skill for any Android LiteRT or .tflite task, including Gradle setup, image classification or vision/audio/embedding helpers, TensorBuffer reuse, Bitmap preprocessing, AndroidViewModel GPU-to-CPU fallback with warm-up on a single-thread dispatcher, migrating from legacy org.tensorflow.lite.Interpreter or GpuDelegate, and latency benchmarking. Don't use for running generative text LLMs with .litertlm files or for Python model conversion.",
+      "source": "./plugins/android-litert-runtime"
     },
     {
       "name": "android-media3-cast-integration",
@@ -168,6 +192,12 @@
       "version": "0.1.0",
       "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, ambient mode, and previews.",
       "source": "./plugins/android-wear-compose-m3"
+    },
+    {
+      "name": "android-wear-widgets",
+      "version": "0.1.0",
+      "description": "Create, migrate, update, and verify Wear OS widgets using Glance Wear and Remote Compose in an Android project. Use this skill when implementing GlanceWearWidget, GlanceWearWidgetService, WearWidgetDocument, Remote Compose UI primitives (RemoteColumn, RemoteRow, RemoteBox, RemoteText, RemoteImage, RemoteButton), local state with rememberMutableRemoteInt and valueChange, click actions with pendingIntentAction, widget provider XML containers (SMALL and LARGE), rectangular widget picker PNG previews, or migrating legacy ProtoLayout TileService tiles to Wear OS widgets. Don't use for mobile home screen AppWidgetProvider or GlanceAppWidget implementations, watch face complications, or full-screen Wear OS activities.",
+      "source": "./plugins/android-wear-widgets"
     },
     {
       "name": "github-utils",
