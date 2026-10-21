@@ -16,7 +16,7 @@
     {
       "name": "android-adaptive",
       "version": "0.1.0",
-      "description": "Instructions to make or update an app's UI so that it adapts to different Android devices including phones, tablets, foldables, laptops, desktop, TV, Auto and XR. It includes how to handle different window sizes, pointing devices (such as mouse) and text entry devices (such as keyboard) using the Compose MediaQuery API. It also covers multi-pane layouts using Navigation3 Scenes, adaptive UI components (such as buttons) with varying target sizes, and adaptive layouts (including navigation areas - nav rails and nav bars) using the Compose Grid and FlexBox APIs.",
+      "description": "Instructions to make or update an app's UI so that it adapts to different Android devices including phones, tablets, foldables, laptops, desktop, TV, Auto, and XR. It includes how to handle different window sizes, pointing devices (such as mouse) and text entry devices (such as keyboard) using the Compose MediaQuery API, and how to preserve UI, navigation, scroll, and media playback state across configuration changes (such as folding/unfolding a foldable, rotating a device, or resizing a window). It also covers multi-pane layouts using Navigation3 Scenes, adaptive UI components (such as buttons) with varying target sizes, and adaptive layouts (including navigation areas - nav rails and nav bars) using the Compose Grid and FlexBox APIs.",
       "source": "./plugins/android-adaptive"
     },
     {
@@ -28,7 +28,7 @@
     {
       "name": "android-android-cli",
       "version": "0.1.0",
-      "description": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, run Android apps on devices, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills.",
+      "description": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, install APKs onto devices and emulators and launch and run apps on them, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills.",
       "source": "./plugins/android-android-cli"
     },
     {
@@ -56,6 +56,12 @@
       "source": "./plugins/android-android-profiler"
     },
     {
+      "name": "android-anr-audit-and-fix",
+      "version": "0.1.0",
+      "description": "Audits Android codebases for ANR risks and diagnoses ANR stack dumps. Use this skill when scanning Android code for ANR risks or triaging ANR stack dumps. Don't use for non-ANR crashes, dropped frames, general CPU profiling, or Perfetto system traces.",
+      "source": "./plugins/android-anr-audit-and-fix"
+    },
+    {
       "name": "android-appfunctions",
       "version": "0.1.0",
       "description": "Analyzes Android apps to identify key user workflows for AppFunctions such as creating a note, playing media, or sending an automated or AI agent triggered message, voice commands, or system shortcuts, without needing to open the app UI. Generates Kotlin code to expose these workflows to the Android system, allowing agents to discover and execute them on-device. Also refines KDoc documentation to ensure AI agents correctly understand and use the provided functionality.",
@@ -76,7 +82,7 @@
     {
       "name": "android-display-glasses-with-jetpack-compose-glimmer",
       "version": "0.1.0",
-      "description": "Provides guidelines for developing projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit. This skill covers foundational Glimmer design principles, workflows for implementing Jetpack Compose Glimmer, and interaction models for the glasses form factor. Use this skill to build an Android XR Augmented Experience app with Jetpack Compose Glimmer that adheres to the Glimmer design system for optimized glasses styling.",
+      "description": "Provides guidelines for developing projected Android XR apps for display glasses using the Jetpack Compose Glimmer UI toolkit. Covers Glimmer design principles, workflows, and interaction models for the glasses form factor. Use this skill to build an Android XR Augmented Experience app with Jetpack Compose Glimmer. Don't use for audio-only AI glasses without a display, non-glasses Android XR headsets (spatial panels or 3D volumes with Jetpack Compose for XR), or phone and tablet Material 3 UIs.",
       "source": "./plugins/android-display-glasses-with-jetpack-compose-glimmer"
     },
     {
@@ -108,6 +114,12 @@
       "version": "0.1.0",
       "description": "Provides instructions and architectural patterns for migrating Android TV applications from legacy Leanback UI Toolkit, Android Views, or Support Fragments to Jetpack Compose for TV (androidx.tv). Use this skill for Leanback to Compose migrations, including browse screen, settings screen, authentication screen, login screen, or video playback screen migrations, or when replacing BrowseSupportFragment, LeanbackSettingsFragment, PreferenceFragment, BaseLeanbackPreferenceFragmentCompat, VideoSupportFragment, GuidedStepSupportFragment, SearchSupportFragment, VerticalGridSupportFragment, Presenter, ArrayObjectAdapter, or CursorMapper with modern Compose equivalents, implementing immersive carousels with focus memory, Media3 video playback with PlayerSurface, or custom 10-foot hero layouts.",
       "source": "./plugins/android-leanback-to-compose-tv-migration"
+    },
+    {
+      "name": "android-litert-lm",
+      "version": "0.1.0",
+      "description": "Builds an Android app that runs an open text LLM on the device, on the CPU or the GPU, with the LiteRT-LM Kotlin API (com.google.ai.edge.litertlm:litertlm-android). Use this skill when creating a chat, summarization, or extraction feature with a .litertlm model from Hugging Face litert-community (Gemma, Qwen, Llama, Phi), including the Gradle dependency, the GPU manifest entries, getting the model file onto the device, Engine initialization off the main thread, a streamed multi-turn Conversation with sendMessageAsync, and the AndroidViewModel and Compose screen. Don't use for running .tflite vision, audio, or embedding models with the CompiledModel API, for image or audio input, tool calling, or NPU backends, or for converting models.",
+      "source": "./plugins/android-litert-lm"
     },
     {
       "name": "android-litert-runtime",
@@ -156,6 +168,12 @@
       "version": "0.1.0",
       "description": "Automated auditor designed to verify Android applications against Google Play Policy domains. It cross-references static code analysis with Play Store declarations to generate deterministic compliance reports, identifying undeclared data collection, architectural risks, and missing disclosures across Permissions and APIs Hygiene, User Account and Identity, and Data Safety and Privacy domains.",
       "source": "./plugins/android-play-policy-insights"
+    },
+    {
+      "name": "android-projected-hardware",
+      "version": "0.1.0",
+      "description": "Provides instructions and workflows for accessing and managing hardware on Android XR projected devices, such as audio glasses and display glasses. Use this skill when building experiences for intelligent eyewear in an Android app and you need to access device hardware like the camera and microphone, handle glasses-specific runtime permissions, or manage connection lifecycles using projected context.",
+      "source": "./plugins/android-projected-hardware"
     },
     {
       "name": "android-r8-analyzer",
