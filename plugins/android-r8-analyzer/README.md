@@ -1,6 +1,6 @@
 # android-r8-analyzer
 
-> Analyzes Android build files and R8 keep rules to identify redundancies, broad package-wide rules, and rules that subsume library consumer keep rules. Use when developers want to optimize their app's size, remove redundant or overly broad keep rules, or troubleshoot Proguard configurations.
+> Analyzes Android build files and R8 keep rules to identify redundancies, broad package-wide rules, and rules that subsume library consumer keep rules. Use this skill when developers want to optimize their Android app's size, remove redundant or overly broad keep rules, or troubleshoot ProGuard configurations. Don't use for general Gradle build errors, Compose UI performance, or runtime CPU profiling.
 
 **Upstream:** [`android/skills/performance/r8-analyzer`](https://github.com/android/skills/tree/main/performance/r8-analyzer) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
