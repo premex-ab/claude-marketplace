@@ -98,10 +98,28 @@
       "source": "./plugins/android-engage-sdk-integration"
     },
     {
+      "name": "android-glance-appwidget-updates-and-memory",
+      "version": "0.1.0",
+      "description": "Manages Android AppWidget state updates, background syncs, and RemoteViews bitmap memory limits with Jetpack Glance (androidx.glance:glance-appwidget) and AppWidgetProvider receivers on Android 17 (API 37). Use this skill when configuring Android 17 (API level 37) compileSdk/targetSdk and AndroidManifest.xml widget receivers, refreshing frozen or stale Glance widget UI after CoroutineWorker DataStore preference updates (updateAppWidgetState), downsampling images within the WindowMetrics memory limit for SizeMode.Responsive, SizeMode.Exact, or LazyColumn, sharing content:// URIs with FileProvider, or fixing ActionCallback NoSuchMethodException and AppWidgetProvider ForegroundServiceStartNotAllowedException crashes with WorkManager. Don't use for Glance layout templates (suggest the glance-canonical-layouts skill) or in-app Compose screens.",
+      "source": "./plugins/android-glance-appwidget-updates-and-memory"
+    },
+    {
       "name": "android-glance-canonical-layouts",
       "version": "0.1.0",
       "description": "Use this skill to create home screen widgets using Jetpack Glance Canonical Layouts from the Android Platform Samples project, or when asked to implement standard widget layout patterns (including Check List, Image Grid, Snap Scrolling, and Standard Toolbar).",
       "source": "./plugins/android-glance-canonical-layouts"
+    },
+    {
+      "name": "android-ink-app-builder",
+      "version": "0.1.0",
+      "description": "Adds inking and freehand drawing capabilities to an Android app using Jetpack Ink (androidx.ink) and Compose. Use this skill when implementing stylus or touch drawing surfaces, rendering wet and dry ink strokes, configuring stock brushes (pressure pen, marker, highlighter), implementing geometry-based erasing, linear undo and redo history, or stroke persistence with Room. Delivers working Compose and ViewModel implementations. Don't use for View-based (XML) inking or programmatic custom BrushFamily creation. For custom BrushFamily creation, custom tip shapes, or behavior node graphs, suggest the ink-custom-brush-builder skill.",
+      "source": "./plugins/android-ink-app-builder"
+    },
+    {
+      "name": "android-ink-custom-brush-builder",
+      "version": "0.1.0",
+      "description": "Creates custom BrushFamily definitions for an Android app using Jetpack Ink (androidx.ink 1.1.0-alpha03 and higher). Use this skill when configuring custom BrushTip shapes, adding pressure, tilt, speed, or noise sensitivity using BrushBehavior node graphs, creating multi-coat layered brushes, applying tiling or particle stamping textures, configuring SlidingWindowModel input smoothing, or serializing brushes. Delivers complete Kotlin BrushFamily, BrushCoat, BrushTip, BrushPaint, and BrushBehavior implementations. Don't use for View-based (XML) inking, Compose drawing surface setup, or stock brush selection. For Compose drawing surface setup, InProgressStrokes wet and dry rendering, eraser, or persistence, suggest the ink-app-builder skill.",
+      "source": "./plugins/android-ink-custom-brush-builder"
     },
     {
       "name": "android-jetpack-compose-performance",
@@ -146,6 +164,12 @@
       "source": "./plugins/android-ml-kit-genai-prompt-api"
     },
     {
+      "name": "android-mlkit-agent-api",
+      "version": "0.1.0",
+      "description": "Builds autonomous on-device agentic workflows in Android apps using the ML Kit GenAI Agent API powered by Gemini Nano and AICore. Use this skill when implementing conversational agents, multi-turn chat with AgentSession in a ViewModel, autonomous tool calling using Android AppFunctions (@AppFunctionDeclaration and AppFunctionAgentTools.discover), ephemeral single-turn execution with runner.runSingleTurnAsync, or handling GenAiException error resilience. It solves the problem of orchestrating local reasoning loops, typed tool dispatch, and session persistence on-device with zero cloud latency and privacy preservation. Don't use for cloud-based Gemini models or Vertex AI, single-turn text generation without agent loops (suggest Prompt API), or non-Android platforms.",
+      "source": "./plugins/android-mlkit-agent-api"
+    },
+    {
       "name": "android-navigation-3",
       "version": "0.1.0",
       "description": "Learn how to install and migrate to Jetpack Navigation 3, and how to implement features and patterns such as deep links, multiple backstacks, scenes (dialogs, bottom sheets, list-detail, two-pane, supporting pane), conditional navigation (such as logged-in navigation versus anonymous), returning results from flows, integration with Hilt, ViewModel, Kotlin, and view interoperability.",
@@ -178,7 +202,7 @@
     {
       "name": "android-r8-analyzer",
       "version": "0.1.0",
-      "description": "Analyzes Android build files and R8 keep rules to identify redundancies, broad package-wide rules, and rules that subsume library consumer keep rules. Use when developers want to optimize their app's size, remove redundant or overly broad keep rules, or troubleshoot Proguard configurations.",
+      "description": "Analyzes Android build files and R8 keep rules to identify redundancies, broad package-wide rules, and rules that subsume library consumer keep rules. Use this skill when developers want to optimize their Android app's size, remove redundant or overly broad keep rules, or troubleshoot ProGuard configurations. Don't use for general Gradle build errors, Compose UI performance, or runtime CPU profiling.",
       "source": "./plugins/android-r8-analyzer"
     },
     {
@@ -186,12 +210,6 @@
       "version": "0.1.0",
       "description": "Provides knowledge and workflows to implement Android's Restore Credentials feature using the androidx.credentials library. Use this skill to create, sign in with, and delete restore keys, enabling silent user sign-in on new devices after a restore. It covers version compatibility, dependencies, server-side prerequisites, and the complete client-side implementation for creating, retrieving, and clearing restore keys.",
       "source": "./plugins/android-restore-credentials"
-    },
-    {
-      "name": "android-styles",
-      "version": "0.1.0",
-      "description": "Use this skill to integrate the Jetpack Compose Styles API into an Android project. This skill guides you through upgrading dependencies, setting up component themes, making custom components styleable, and migrating existing layout properties to use unified styles. Migrate custom design system components, replace hard coded parameters with Style attributes, and use Modifier.styleable for interaction states.",
-      "source": "./plugins/android-styles"
     },
     {
       "name": "android-testing-setup",
