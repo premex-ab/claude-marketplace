@@ -64,7 +64,7 @@
     {
       "name": "android-appfunctions",
       "version": "0.1.0",
-      "description": "Analyzes Android apps to identify key user workflows for AppFunctions such as creating a note, playing media, or sending an automated or AI agent triggered message, voice commands, or system shortcuts, without needing to open the app UI. Generates Kotlin code to expose these workflows to the Android system, allowing agents to discover and execute them on-device. Also refines KDoc documentation to ensure AI agents correctly understand and use the provided functionality.",
+      "description": "Analyzes Android apps to find user workflows to expose as AppFunctions, such as creating a note, playing media, or sending a message. AI agents, voice commands, and system shortcuts then run them without opening the app UI. Generates Kotlin code with the androidx.appfunctions library, and refines KDoc and the app description so that agents choose and call functions correctly. Use this skill when discovering, implementing, documenting, testing, or upgrading AppFunctions in an Android app, including @AppFunctionDeclaration, @AppFunctionSerializable, @AppFunctionServiceEntryPoint, AppFunctionService, app_metadata.xml, appfn:instructions, adb shell cmd app_function, and legacy @AppFunction or AppFunctionConfiguration.Provider code. Don't use for building agents that call AppFunctions or for remote MCP servers.",
       "source": "./plugins/android-appfunctions"
     },
     {
