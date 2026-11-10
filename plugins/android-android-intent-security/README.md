@@ -1,6 +1,6 @@
 # android-android-intent-security
 
-> Best practices for Android Intent security. Use this skill when auditing component configurations in AndroidManifest.xml activities, services, receivers) or source code handling incoming Intents (getIntent, getParcelableExtra) to prevent Intent Redirection and unauthorized access.
+> Audits, detects, and remediates Android Intent and component security vulnerabilities. Use this skill when auditing component configurations in AndroidManifest.xml (activities, services, receivers) or source code handling incoming Intents (getIntent, getParcelableExtra) to prevent Intent Redirection and unauthorized access. Don't use for network security, TLS configuration, or general runtime permission request flows.
 
 **Upstream:** [`android/skills/security/android-intent-security`](https://github.com/android/skills/tree/main/security/android-intent-security) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
