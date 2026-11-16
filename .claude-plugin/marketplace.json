@@ -28,7 +28,7 @@
     {
       "name": "android-android-cli",
       "version": "0.1.0",
-      "description": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, install APKs onto devices and emulators and launch and run apps on them, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills.",
+      "description": "Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, install APKs onto devices and emulators and launch and run apps on them, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, inspect built artifacts (APK, AAB, JAR, AAR) for build and optimization details, render Compose previews, look up official Android documentation, and discover and install official Android skills.",
       "source": "./plugins/android-android-cli"
     },
     {
@@ -120,6 +120,12 @@
       "version": "0.1.0",
       "description": "Creates custom BrushFamily definitions for an Android app using Jetpack Ink (androidx.ink 1.1.0-alpha03 and higher). Use this skill when configuring custom BrushTip shapes, adding pressure, tilt, speed, or noise sensitivity using BrushBehavior node graphs, creating multi-coat layered brushes, applying tiling or particle stamping textures, configuring SlidingWindowModel input smoothing, or serializing brushes. Delivers complete Kotlin BrushFamily, BrushCoat, BrushTip, BrushPaint, and BrushBehavior implementations. Don't use for View-based (XML) inking, Compose drawing surface setup, or stock brush selection. For Compose drawing surface setup, InProgressStrokes wet and dry rendering, eraser, or persistence, suggest the ink-app-builder skill.",
       "source": "./plugins/android-ink-custom-brush-builder"
+    },
+    {
+      "name": "android-ios-to-android",
+      "version": "0.1.0",
+      "description": "Use for ANY task that ports or implements Android functionality from an iOS/Swift codebase \u2014 including single-feature tasks (BLE scanning, location/GPS tracking, billing, Health Connect, background work, database, one screen), not just full-app migrations. Primary coordinating skill for migrating iOS apps and subsystems to Android (Jetpack Compose, Room, Kotlin Coroutines and Flow, Architecture Components). Handles both full-app greenfield migrations and scoped sub-component feature migrations: Info.plist permissions and AndroidManifest.xml mapping (Android 14+ runtime permissions and foreground service types), SwiftUI views and screen layouts, CoreData/Room, StoreKit/Google Play Billing (in-app subscriptions and purchases), HealthKit/Health Connect, CoreBluetooth/BLE, CoreLocation/GPS, BGTaskScheduler/WorkManager, and UserDefaults/DataStore. Don't use for Android-only work with no iOS source, for converting Android XML Views to Compose, or for building or changing iOS apps.",
+      "source": "./plugins/android-ios-to-android"
     },
     {
       "name": "android-jetpack-compose-performance",
