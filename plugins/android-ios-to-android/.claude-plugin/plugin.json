@@ -1,0 +1,5 @@
+{
+  "name": "android-ios-to-android",
+  "version": "0.1.0",
+  "description": "Use for ANY task that ports or implements Android functionality from an iOS/Swift codebase \u2014 including single-feature tasks (BLE scanning, location/GPS tracking, billing, Health Connect, background work, database, one screen), not just full-app migrations. Primary coordinating skill for migrating iOS apps and subsystems to Android (Jetpack Compose, Room, Kotlin Coroutines and Flow, Architecture Components). Handles both full-app greenfield migrations and scoped sub-component feature migrations: Info.plist permissions and AndroidManifest.xml mapping (Android 14+ runtime permissions and foreground service types), SwiftUI views and screen layouts, CoreData/Room, StoreKit/Google Play Billing (in-app subscriptions and purchases), HealthKit/Health Connect, CoreBluetooth/BLE, CoreLocation/GPS, BGTaskScheduler/WorkManager, and UserDefaults/DataStore. Don't use for Android-only work with no iOS source, for converting Android XML Views to Compose, or for building or changing iOS apps."
+}

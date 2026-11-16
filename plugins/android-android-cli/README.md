@@ -1,6 +1,6 @@
 # android-android-cli
 
-> Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, install APKs onto devices and emulators and launch and run apps on them, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, look up official Android documentation, and discover and install official Android skills.
+> Provides instructions for installing and using the `android` CLI. The `android` command-line tool is a critical tool for Android development and helps you create new Android projects, install APKs onto devices and emulators and launch and run apps on them, manage and interact with Android virtual devices (including screenshots and UI inspection), manage Android SDK components, inspect built artifacts (APK, AAB, JAR, AAR) for build and optimization details, render Compose previews, look up official Android documentation, and discover and install official Android skills.
 
 **Upstream:** [`android/skills/devtools/android-cli`](https://github.com/android/skills/tree/main/devtools/android-cli) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 
