@@ -1,0 +1,5 @@
+{
+  "name": "android-credential-verifier",
+  "version": "0.1.0",
+  "description": "Request and verify digital credentials (such as ISO mdoc mobile driver's licenses and SD-JWT credentials) from a holder wallet in an Android app or WebView using Jetpack Credential Manager. Use this skill when building a digital credential verifier app in an Android project, constructing OpenID4VP (openid4vp-v1-unsigned) and Digital Credential Query Language (dcql_query) requests, calling CredentialManager.getCredential with GetDigitalCredentialOption, requesting multiple credentials simultaneously, or bridging WebView navigator.credentials.get requests with WebViewCompat.WebMessageListener. Don't use for holder wallet registration, issuing credentials over OpenID4VCI, passkeys, or carrier TS.43 phone number verification."
+}

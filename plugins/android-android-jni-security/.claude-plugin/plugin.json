@@ -1,0 +1,5 @@
+{
+  "name": "android-android-jni-security",
+  "version": "0.1.0",
+  "description": "Audits, detects, and remediates Android JNI and native C/C++ boundary security vulnerabilities. Use this skill when reviewing, auditing, hardening, or securing Android JNI boundaries, Kotlin external or Java native methods, and C/C++ shared libraries (System.loadLibrary) against buffer overflow, memory pinning, Time-of-Check to Time-of-Use (TOCTOU) file path races, hardcoded C++ cryptographic keys, cross-thread JNI reference and session callback lifecycles, or unhandled pending JVM exceptions and local reference leaks. Don't use for pure managed Kotlin or Java code without native JNI bindings or general reverse-engineering of stripped binaries."
+}

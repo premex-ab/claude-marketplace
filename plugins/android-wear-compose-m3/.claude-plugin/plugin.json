@@ -1,5 +1,5 @@
 {
   "name": "android-wear-compose-m3",
   "version": "0.1.0",
-  "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, ambient mode, and previews."
+  "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) Android watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, one-handed gestures, ambient mode, and previews. Don't use for mobile, tablet, or TV Compose apps."
 }

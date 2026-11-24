@@ -1,0 +1,5 @@
+{
+  "name": "android-credential-issuer",
+  "version": "0.1.0",
+  "description": "Issue digital credentials to user holder wallets from an Android issuer app over OpenID4VCI using Jetpack Credential Manager and hardware-backed Android Keystore attestation. Use this skill when building an Android credential issuer app, provisioning credentials to wallets with CreateDigitalCredentialRequest and CredentialManager.createCredential, constructing OpenID4VCI (openid4vci-v1) credential offer JSON payloads, or configuring and validating android_keystore_attestation certificate chains and c_nonce challenges. Don't use for holder wallet registration (RegistryManager), requesting credentials as a verifier (GetDigitalCredentialOption), passkeys, or carrier TS.43 phone number verification."
+}
