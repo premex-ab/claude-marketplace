@@ -1,6 +1,6 @@
 # android-wear-compose-m3
 
-> Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, ambient mode, and previews.
+> Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) Android watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, one-handed gestures, ambient mode, and previews. Don't use for mobile, tablet, or TV Compose apps.
 
 **Upstream:** [`android/skills/wear/wear-compose-m3`](https://github.com/android/skills/tree/main/wear/wear-compose-m3) — mirrored and split into a one-plugin-per-skill layout so you can install skills individually. Auto-synced daily from upstream; the SKILL.md is Google-authored.
 

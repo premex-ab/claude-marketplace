@@ -44,6 +44,12 @@
       "source": "./plugins/android-android-intent-security"
     },
     {
+      "name": "android-android-jni-security",
+      "version": "0.1.0",
+      "description": "Audits, detects, and remediates Android JNI and native C/C++ boundary security vulnerabilities. Use this skill when reviewing, auditing, hardening, or securing Android JNI boundaries, Kotlin external or Java native methods, and C/C++ shared libraries (System.loadLibrary) against buffer overflow, memory pinning, Time-of-Check to Time-of-Use (TOCTOU) file path races, hardcoded C++ cryptographic keys, cross-thread JNI reference and session callback lifecycles, or unhandled pending JVM exceptions and local reference leaks. Don't use for pure managed Kotlin or Java code without native JNI bindings or general reverse-engineering of stripped binaries.",
+      "source": "./plugins/android-android-jni-security"
+    },
+    {
       "name": "android-android-permissions-security",
       "version": "0.1.0",
       "description": "Audits, detects gaps, and remediates Android permissions and IPC component security vulnerabilities. Use when reviewing AndroidManifest.xml, defining custom permissions, securing Services, Receivers, and Providers, verifying caller signatures and UID using Binder, or implementing runtime permission flows.",
@@ -78,6 +84,24 @@
       "version": "1.0.0",
       "description": "Bootstraps Google's `android` CLI on developer machines and CI runners, keeps it fresh daily via a SessionStart hook, and provides migration guidance from legacy sdkmanager/avdmanager-based pipelines. Includes the `android-cli-setup` skill for local dev bootstrapping, the `android-cli-ci` skill for CI/CD setup (GitHub Actions, GitLab, CircleCI, Bitrise, Jenkins, Buildkite, self-hosted) with per-platform reference workflows and a sdkmanager migration guide, plus /android-cli-status, /android-cli-update, /android-cli-reset slash commands.",
       "source": "./plugins/android-cli"
+    },
+    {
+      "name": "android-credential-holder",
+      "version": "0.1.0",
+      "description": "Implement digital credential holder (wallet) registration, presentation, and issuance handling in an Android app using the Jetpack Credential Manager Registry API. Use this skill when building a digital wallet or holder app in an Android project, registering SD-JWT or mdoc credential metadata with RegistryManager and OpenId4VpRegistry, configuring inline issuance entries, registering OpenID4VCI creation options with RegisterCreationOptionsRequest, or handling GET_CREDENTIAL and CREATE_CREDENTIAL intents with PendingIntentHandler. Don't use for requesting credentials as a verifier, issuing credentials from an issuer app, passkeys, or carrier TS.43 phone number verification.",
+      "source": "./plugins/android-credential-holder"
+    },
+    {
+      "name": "android-credential-issuer",
+      "version": "0.1.0",
+      "description": "Issue digital credentials to user holder wallets from an Android issuer app over OpenID4VCI using Jetpack Credential Manager and hardware-backed Android Keystore attestation. Use this skill when building an Android credential issuer app, provisioning credentials to wallets with CreateDigitalCredentialRequest and CredentialManager.createCredential, constructing OpenID4VCI (openid4vci-v1) credential offer JSON payloads, or configuring and validating android_keystore_attestation certificate chains and c_nonce challenges. Don't use for holder wallet registration (RegistryManager), requesting credentials as a verifier (GetDigitalCredentialOption), passkeys, or carrier TS.43 phone number verification.",
+      "source": "./plugins/android-credential-issuer"
+    },
+    {
+      "name": "android-credential-verifier",
+      "version": "0.1.0",
+      "description": "Request and verify digital credentials (such as ISO mdoc mobile driver's licenses and SD-JWT credentials) from a holder wallet in an Android app or WebView using Jetpack Credential Manager. Use this skill when building a digital credential verifier app in an Android project, constructing OpenID4VP (openid4vp-v1-unsigned) and Digital Credential Query Language (dcql_query) requests, calling CredentialManager.getCredential with GetDigitalCredentialOption, requesting multiple credentials simultaneously, or bridging WebView navigator.credentials.get requests with WebViewCompat.WebMessageListener. Don't use for holder wallet registration, issuing credentials over OpenID4VCI, passkeys, or carrier TS.43 phone number verification.",
+      "source": "./plugins/android-credential-verifier"
     },
     {
       "name": "android-display-glasses-with-jetpack-compose-glimmer",
@@ -136,7 +160,7 @@
     {
       "name": "android-leanback-to-compose-tv-migration",
       "version": "0.1.0",
-      "description": "Provides instructions and architectural patterns for migrating Android TV applications from legacy Leanback UI Toolkit, Android Views, or Support Fragments to Jetpack Compose for TV (androidx.tv). Use this skill for Leanback to Compose migrations, including browse screen, settings screen, authentication screen, login screen, or video playback screen migrations, or when replacing BrowseSupportFragment, LeanbackSettingsFragment, PreferenceFragment, BaseLeanbackPreferenceFragmentCompat, VideoSupportFragment, GuidedStepSupportFragment, SearchSupportFragment, VerticalGridSupportFragment, Presenter, ArrayObjectAdapter, or CursorMapper with modern Compose equivalents, implementing immersive carousels with focus memory, Media3 video playback with PlayerSurface, or custom 10-foot hero layouts.",
+      "description": "Migrate Android TV apps from legacy Leanback UI Toolkit, Android Views, or Support Fragments to Jetpack Compose for TV (androidx.tv). Use when migrating browse, settings, authentication, login, or video playback screens, replacing BrowseSupportFragment, LeanbackSettingsFragment, PreferenceFragment, BaseLeanbackPreferenceFragmentCompat, VideoSupportFragment, GuidedStepSupportFragment, SearchSupportFragment, VerticalGridSupportFragment, Presenter, ArrayObjectAdapter, or CursorMapper with Compose, or building carousels with focus memory, Media3 PlayerSurface playback, or 10-foot hero layouts. Don't use for mobile, tablet, foldable, Wear OS, or XR apps on standard Material 3 (`androidx.compose.material3`), or non-Compose Leanback maintenance.",
       "source": "./plugins/android-leanback-to-compose-tv-migration"
     },
     {
@@ -188,6 +212,12 @@
       "source": "./plugins/android-navigation-event"
     },
     {
+      "name": "android-phone-number-verification",
+      "version": "0.1.0",
+      "description": "Verify user phone numbers without SMS in an Android app using the Credential Manager DigitalCredential API, OpenID4VP, and carrier-issued TS.43 tokens. Use this skill whenever the user asks to verify phone numbers without SMS, implement carrier-based phone number verification in an Android project, perform a TelephonyManager.getSimCarrierId carrier precheck, or request a TS.43 Digital Credential using CredentialManager, GetDigitalCredentialOption, GetCredentialRequest, DigitalCredential, and dc-authorization+sd-jwt DCQL queries. Produces Android client-side carrier precheck and Credential Manager TS.43 token request code alongside backend OpenID4VP and DCQL request construction and token exchange logic. Don't use for SMS OTP, TelephonyManager.getLine1Number reads, digital wallet holder registration, or issuing credentials to wallets.",
+      "source": "./plugins/android-phone-number-verification"
+    },
+    {
       "name": "android-play-billing-library-version-upgrade",
       "version": "0.1.0",
       "description": "Use this skill when upgrading or migrating an Android project from any legacy Google Play Billing Library (PBL) version to the latest stable version of PBL.",
@@ -232,7 +262,7 @@
     {
       "name": "android-wear-compose-m3",
       "version": "0.1.0",
-      "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, ambient mode, and previews.",
+      "description": "Guidance for Wear OS Compose Material3 (Wear Compose Material 3 / Wear Compose Material3) Android watch and wearable apps. Covers creating, updating, and migrating projects (Material 2.5 and Horologist migration) using androidx.wear.compose.material3, androidx.wear.compose.foundation, and androidx.wear.compose.navigation3, including AppScaffold, ScreenScaffold, TransformingLazyColumn, one-handed gestures, ambient mode, and previews. Don't use for mobile, tablet, or TV Compose apps.",
       "source": "./plugins/android-wear-compose-m3"
     },
     {

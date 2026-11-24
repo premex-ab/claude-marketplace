@@ -1,0 +1,5 @@
+{
+  "name": "android-phone-number-verification",
+  "version": "0.1.0",
+  "description": "Verify user phone numbers without SMS in an Android app using the Credential Manager DigitalCredential API, OpenID4VP, and carrier-issued TS.43 tokens. Use this skill whenever the user asks to verify phone numbers without SMS, implement carrier-based phone number verification in an Android project, perform a TelephonyManager.getSimCarrierId carrier precheck, or request a TS.43 Digital Credential using CredentialManager, GetDigitalCredentialOption, GetCredentialRequest, DigitalCredential, and dc-authorization+sd-jwt DCQL queries. Produces Android client-side carrier precheck and Credential Manager TS.43 token request code alongside backend OpenID4VP and DCQL request construction and token exchange logic. Don't use for SMS OTP, TelephonyManager.getLine1Number reads, digital wallet holder registration, or issuing credentials to wallets."
+}

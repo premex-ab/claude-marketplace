@@ -1,0 +1,5 @@
+{
+  "name": "android-credential-holder",
+  "version": "0.1.0",
+  "description": "Implement digital credential holder (wallet) registration, presentation, and issuance handling in an Android app using the Jetpack Credential Manager Registry API. Use this skill when building a digital wallet or holder app in an Android project, registering SD-JWT or mdoc credential metadata with RegistryManager and OpenId4VpRegistry, configuring inline issuance entries, registering OpenID4VCI creation options with RegisterCreationOptionsRequest, or handling GET_CREDENTIAL and CREATE_CREDENTIAL intents with PendingIntentHandler. Don't use for requesting credentials as a verifier, issuing credentials from an issuer app, passkeys, or carrier TS.43 phone number verification."
+}
